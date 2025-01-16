@@ -1,2 +1,0 @@
-interface loopback99
-  ip address 99.99.99.99/32
