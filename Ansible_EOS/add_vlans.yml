@@ -1,0 +1,17 @@
+---
+- name: Add VLANs to device(s)
+  hosts: leafs
+  tasks:
+    - name: Add VLAN 10&20
+      arista.eos.eos_vlans:
+        config:
+          - vlan_id: 10
+            name: DMZ-1
+            state: active
+          - vlan_id: 20
+            name: DMZ-2
+            state: active
+          - vlan_id: 30
+            name: DMZ-3
+            state: active
+        state: merged
