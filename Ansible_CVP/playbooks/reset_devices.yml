@@ -1,5 +1,5 @@
 ---
-- name: Playbook for applying configlets to devices in CloudVision
+- name: Applying only default configlets (Arista labs) for reset
   hosts: cvp1
 
   vars_files:
@@ -8,9 +8,8 @@
   tasks:
     - name: Apply configlets to devices
       arista.cvp.cv_device_v3:
-        devices: "{{ CVP_DEVICES_MLAG }}"
-        state: present
-        apply_mode: loose
+        devices: "{{ CVP_DEVICES_DEFAULT }}"
+        apply_mode: strict
       register: CVP_CHANGE
     - name: Run tasks from previous task
       arista.cvp.cv_task_v3:
