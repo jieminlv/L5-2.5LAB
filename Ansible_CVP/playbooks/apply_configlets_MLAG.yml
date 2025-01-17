@@ -11,7 +11,7 @@
         devices: "{{ CVP_DEVICES_MLAG }}"
         state: present
         apply_mode: loose
-      register: CVP_CHANGE
-    - name: Run tasks from previous task
-      arista.cvp.cv_task_v3:
-        tasks: "{{ CVP_CHANGE.taskIds }}"
+    #   register: CVP_CHANGE
+    # - name: Run tasks from previous task
+    #   arista.cvp.cv_task_v3:
+    #     tasks: "{{ CVP_CHANGE.taskIds }}"
