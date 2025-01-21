@@ -7,12 +7,12 @@ import os
 from requests.packages.urllib3.exceptions import InsecureRequestWarning
 requests.packages.urllib3.disable_warnings(InsecureRequestWarning)
 
-cvp1 = "192.168.0.5"
+cvp1 = "192.168.50.228"
 # For an on-prem production environemt, you would list two more CVP nodes
 # cvp2 = ""
 # cvp3 = ""
-cvp_user = "arista"
-cvp_pw = "aristat6ue"
+cvp_user = "cvpadmin"
+cvp_pw = "arista123"
 
 client = cvp_client.CvpClient()
 
