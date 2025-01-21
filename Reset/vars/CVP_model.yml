@@ -43,11 +43,11 @@ CVP_DEVICES_DEFAULT:
     configlets:
       - 'ATD-INFRA'
       - 'spine3-base'
-  - fqdn: 'spine4'
-    parentContainerName: 'Spine'
-    configlets:
-      - 'ATD-INFRA'
-      - 'spine4-base'
+  # - fqdn: 'spine4'
+  #   parentContainerName: 'Spine'
+  #   configlets:
+  #     - 'ATD-INFRA'
+  #     - 'spine4-base'
   - fqdn: 'leaf1'
     parentContainerName: 'Leaf'
     configlets:
