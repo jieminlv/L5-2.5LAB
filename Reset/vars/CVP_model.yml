@@ -79,8 +79,8 @@ CVP_DEVICES_DEFAULT:
       - 'ATD-INFRA'
       - 'borderleaf2-base'
 # VALIDATE_DEVICES:
-#   - device_name: borderleaf1
+#   - device_name: leaf1
 #     search_type: hostname
 #     cvp_configlets:
 #       - 'ATD-INFRA'
-#       - 'borderleaf1-base'
+#       - 'leaf1-base'

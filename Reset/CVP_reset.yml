@@ -8,24 +8,40 @@
     - name: Upload dummy configlet
       arista.cvp.cv_configlet_v3:
         configlets: "{{ CVP_CONFIGLETS }}"
+
     - name: Build default container topology
       arista.cvp.cv_container_v3:
         topology: "{{ CONTAINERS_DUMMY }}"
         apply_mode: strict
+
     - name: Build default container topology
       arista.cvp.cv_container_v3:
         topology: "{{ CONTAINERS_DEFAULT }}"
         apply_mode: strict
+
     - name: Apply configlets for default config
       arista.cvp.cv_device_v3:
         devices: "{{ CVP_DEVICES_DEFAULT }}"
         state: present
         apply_mode: strict
       register: APPLY_RESULTS
+
     # - name: Validate configlets
     #   arista.cvp.cv_validate_v3:
     #     validate_mode: ignore
     #     devices: "{{ VALIDATE_DEVICES }}"
-    - name: Run change control without interaction
-      arista.cvp.cv_task_v3:
-        tasks: "{{ APPLY_RESULTS.taskIds }}"
+
+    # - name: Query task completion
+    #   arista.cvp.cv_task_v3:
+    #     state: query
+    #     task_id: "{{ APPLY_RESULTS.taskIds }}"  # Referencing APPLY_RESULTS for task ID
+    #   register: task_status
+
+
+
+    - name: Debug APPLY_RESULTS
+      debug:
+        msg: "{{ APPLY_RESULTS }}"
+
+
+
