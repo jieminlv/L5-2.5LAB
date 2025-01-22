@@ -22,10 +22,10 @@
         state: present
         apply_mode: strict
       register: APPLY_RESULTS
-    - name: Validate configlets
-      arista.cvp.cv_validate_v3:
-        validate_mode: ignore
-        devices: "{{ VALIDATE_DEVICES }}"
+    # - name: Validate configlets
+    #   arista.cvp.cv_validate_v3:
+    #     validate_mode: ignore
+    #     devices: "{{ VALIDATE_DEVICES }}"
     - name: Run change control without interaction
       arista.cvp.cv_task_v3:
         tasks: "{{ APPLY_RESULTS.taskIds }}"
