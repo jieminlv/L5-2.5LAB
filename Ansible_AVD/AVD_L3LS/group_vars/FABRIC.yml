@@ -52,22 +52,22 @@ l3leaf:
         - name: leaf1
           id: 1
           mgmt_ip: 192.168.50.244/24
-          uplink_switch_interfaces: [Ethernet3, Ethernet3, Ethernet3]
+          uplink_switch_interfaces: [Ethernet2, Ethernet2, Ethernet2]
         - name: leaf2
           id: 2
           mgmt_ip: 192.168.50.245/24
-          uplink_switch_interfaces: [Ethernet4, Ethernet4, Ethernet4]
+          uplink_switch_interfaces: [Ethernet3, Ethernet3, Ethernet3]
     - group: mlag2
       bgp_as: 65299 # Overriden automatic allocation for host4/R1 peering
       nodes:
         - name: leaf3
           id: 3
           mgmt_ip: 192.168.50.246/24
-          uplink_switch_interfaces: [Ethernet5, Ethernet5, Ethernet5]
+          uplink_switch_interfaces: [Ethernet4, Ethernet4, Ethernet4]
         - name: leaf4
           id: 4
           mgmt_ip: 192.168.50.247/24
-          uplink_switch_interfaces: [Ethernet6, Ethernet6, Ethernet6]
+          uplink_switch_interfaces: [Ethernet5, Ethernet5, Ethernet5]
 
 
 
