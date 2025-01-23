@@ -18,13 +18,13 @@ spine:
   nodes:
     - name: spine1
       id: 11
-      mgmt_ip: 192.168.0.11/24
+      mgmt_ip: 192.168.50.248/24
     - name: spine2
       id: 12
-      mgmt_ip: 192.168.0.12/24
+      mgmt_ip: 192.168.50.249/24
     - name: spine3
       id: 13
-    #   mgmt_ip: 192.168.0.13/24
+      mgmt_ip: 192.168.50.250/24
     # - name: spine4
     #   id: 14
     #   mgmt_ip: 192.168.0.14/24
@@ -51,22 +51,22 @@ l3leaf:
       nodes:
         - name: leaf1
           id: 1
-          mgmt_ip: 192.168.0.21/24
+          mgmt_ip: 192.168.50.244/24
           uplink_switch_interfaces: [Ethernet3, Ethernet3, Ethernet3]
         - name: leaf2
           id: 2
-          mgmt_ip: 192.168.0.22/24
+          mgmt_ip: 192.168.50.245/24
           uplink_switch_interfaces: [Ethernet4, Ethernet4, Ethernet4]
     - group: mlag2
       bgp_as: 65299 # Overriden automatic allocation for host4/R1 peering
       nodes:
         - name: leaf3
           id: 3
-          mgmt_ip: 192.168.0.23/24
+          mgmt_ip: 192.168.50.246/24
           uplink_switch_interfaces: [Ethernet5, Ethernet5, Ethernet5]
         - name: leaf4
           id: 4
-          mgmt_ip: 192.168.0.24/24
+          mgmt_ip: 192.168.50.247/24
           uplink_switch_interfaces: [Ethernet6, Ethernet6, Ethernet6]
 
 
@@ -88,6 +88,6 @@ bgp_update_wait_for_convergence: false
 
 # Needed for Arista ATD Lab Environment
 dns_domain: atd.lab
-mgmt_interface: Management0
+mgmt_interface: Management1
 mgmt_interface_vrf: MGMT
-mgmt_gateway: 192.168.0.1
+mgmt_gateway: 192.168.50.1
