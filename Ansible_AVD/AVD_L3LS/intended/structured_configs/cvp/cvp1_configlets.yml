@@ -14,11 +14,11 @@ cvp_configlets:
     portfast\n!\ninterface Ethernet1\n   description MLAG_PEER_leaf2_Ethernet1\n   no
     shutdown\n   channel-group 1 mode active\n!\ninterface Ethernet2\n   description
     MLAG_PEER_leaf2_Ethernet2\n   no shutdown\n   channel-group 1 mode active\n!\ninterface
-    Ethernet3\n   description P2P_LINK_TO_SPINE1_Ethernet3\n   no shutdown\n   mtu
+    Ethernet3\n   description P2P_LINK_TO_SPINE1_Ethernet2\n   no shutdown\n   mtu
     1550\n   no switchport\n   ip address 192.168.103.1/31\n!\ninterface Ethernet4\n
-    \  description P2P_LINK_TO_SPINE2_Ethernet3\n   no shutdown\n   mtu 1550\n   no
+    \  description P2P_LINK_TO_SPINE2_Ethernet2\n   no shutdown\n   mtu 1550\n   no
     switchport\n   ip address 192.168.103.3/31\n!\ninterface Ethernet5\n   description
-    P2P_LINK_TO_SPINE3_Ethernet3\n   no shutdown\n   mtu 1550\n   no switchport\n
+    P2P_LINK_TO_SPINE3_Ethernet2\n   no shutdown\n   mtu 1550\n   no switchport\n
     \  ip address 192.168.103.5/31\n!\ninterface Ethernet7\n   description host1_Ethernet1\n
     \  no shutdown\n   channel-group 7 mode active\n!\ninterface Loopback0\n   description
     EVPN_Overlay_Peering\n   no shutdown\n   ip address 192.168.101.1/32\n!\ninterface
@@ -63,11 +63,11 @@ cvp_configlets:
     spine2\n   neighbor 192.168.101.13 peer group EVPN-OVERLAY-PEERS\n   neighbor
     192.168.101.13 remote-as 65001\n   neighbor 192.168.101.13 description spine3\n
     \  neighbor 192.168.103.0 peer group IPv4-UNDERLAY-PEERS\n   neighbor 192.168.103.0
-    remote-as 65001\n   neighbor 192.168.103.0 description spine1_Ethernet3\n   neighbor
+    remote-as 65001\n   neighbor 192.168.103.0 description spine1_Ethernet2\n   neighbor
     192.168.103.2 peer group IPv4-UNDERLAY-PEERS\n   neighbor 192.168.103.2 remote-as
-    65001\n   neighbor 192.168.103.2 description spine2_Ethernet3\n   neighbor 192.168.103.4
+    65001\n   neighbor 192.168.103.2 description spine2_Ethernet2\n   neighbor 192.168.103.4
     peer group IPv4-UNDERLAY-PEERS\n   neighbor 192.168.103.4 remote-as 65001\n   neighbor
-    192.168.103.4 description spine3_Ethernet3\n   redistribute connected route-map
+    192.168.103.4 description spine3_Ethernet2\n   redistribute connected route-map
     RM-CONN-2-BGP\n   !\n   vlan 10\n      rd 192.168.101.1:10010\n      route-target
     both 10010:10010\n      redistribute learned\n   !\n   vlan 20\n      rd 192.168.101.1:10020\n
     \     route-target both 10020:10020\n      redistribute learned\n   !\n   address-family
@@ -94,11 +94,11 @@ cvp_configlets:
     portfast\n!\ninterface Ethernet1\n   description MLAG_PEER_leaf1_Ethernet1\n   no
     shutdown\n   channel-group 1 mode active\n!\ninterface Ethernet2\n   description
     MLAG_PEER_leaf1_Ethernet2\n   no shutdown\n   channel-group 1 mode active\n!\ninterface
-    Ethernet3\n   description P2P_LINK_TO_SPINE1_Ethernet4\n   no shutdown\n   mtu
+    Ethernet3\n   description P2P_LINK_TO_SPINE1_Ethernet3\n   no shutdown\n   mtu
     1550\n   no switchport\n   ip address 192.168.103.7/31\n!\ninterface Ethernet4\n
-    \  description P2P_LINK_TO_SPINE2_Ethernet4\n   no shutdown\n   mtu 1550\n   no
+    \  description P2P_LINK_TO_SPINE2_Ethernet3\n   no shutdown\n   mtu 1550\n   no
     switchport\n   ip address 192.168.103.9/31\n!\ninterface Ethernet5\n   description
-    P2P_LINK_TO_SPINE3_Ethernet4\n   no shutdown\n   mtu 1550\n   no switchport\n
+    P2P_LINK_TO_SPINE3_Ethernet3\n   no shutdown\n   mtu 1550\n   no switchport\n
     \  ip address 192.168.103.11/31\n!\ninterface Ethernet7\n   description host1_Ethernet2\n
     \  no shutdown\n   channel-group 7 mode active\n!\ninterface Loopback0\n   description
     EVPN_Overlay_Peering\n   no shutdown\n   ip address 192.168.101.2/32\n!\ninterface
@@ -143,11 +143,11 @@ cvp_configlets:
     spine2\n   neighbor 192.168.101.13 peer group EVPN-OVERLAY-PEERS\n   neighbor
     192.168.101.13 remote-as 65001\n   neighbor 192.168.101.13 description spine3\n
     \  neighbor 192.168.103.6 peer group IPv4-UNDERLAY-PEERS\n   neighbor 192.168.103.6
-    remote-as 65001\n   neighbor 192.168.103.6 description spine1_Ethernet4\n   neighbor
+    remote-as 65001\n   neighbor 192.168.103.6 description spine1_Ethernet3\n   neighbor
     192.168.103.8 peer group IPv4-UNDERLAY-PEERS\n   neighbor 192.168.103.8 remote-as
-    65001\n   neighbor 192.168.103.8 description spine2_Ethernet4\n   neighbor 192.168.103.10
+    65001\n   neighbor 192.168.103.8 description spine2_Ethernet3\n   neighbor 192.168.103.10
     peer group IPv4-UNDERLAY-PEERS\n   neighbor 192.168.103.10 remote-as 65001\n   neighbor
-    192.168.103.10 description spine3_Ethernet4\n   redistribute connected route-map
+    192.168.103.10 description spine3_Ethernet3\n   redistribute connected route-map
     RM-CONN-2-BGP\n   !\n   vlan 10\n      rd 192.168.101.2:10010\n      route-target
     both 10010:10010\n      redistribute learned\n   !\n   vlan 20\n      rd 192.168.101.2:10020\n
     \     route-target both 10020:10020\n      redistribute learned\n   !\n   address-family
@@ -174,11 +174,11 @@ cvp_configlets:
     portfast\n!\ninterface Ethernet1\n   description MLAG_PEER_leaf4_Ethernet1\n   no
     shutdown\n   channel-group 1 mode active\n!\ninterface Ethernet2\n   description
     MLAG_PEER_leaf4_Ethernet2\n   no shutdown\n   channel-group 1 mode active\n!\ninterface
-    Ethernet3\n   description P2P_LINK_TO_SPINE1_Ethernet5\n   no shutdown\n   mtu
+    Ethernet3\n   description P2P_LINK_TO_SPINE1_Ethernet4\n   no shutdown\n   mtu
     1550\n   no switchport\n   ip address 192.168.103.13/31\n!\ninterface Ethernet4\n
-    \  description P2P_LINK_TO_SPINE2_Ethernet5\n   no shutdown\n   mtu 1550\n   no
+    \  description P2P_LINK_TO_SPINE2_Ethernet4\n   no shutdown\n   mtu 1550\n   no
     switchport\n   ip address 192.168.103.15/31\n!\ninterface Ethernet5\n   description
-    P2P_LINK_TO_SPINE3_Ethernet5\n   no shutdown\n   mtu 1550\n   no switchport\n
+    P2P_LINK_TO_SPINE3_Ethernet4\n   no shutdown\n   mtu 1550\n   no switchport\n
     \  ip address 192.168.103.17/31\n!\ninterface Ethernet7\n   description host2_Ethernet1\n
     \  no shutdown\n   channel-group 7 mode active\n!\ninterface Loopback0\n   description
     EVPN_Overlay_Peering\n   no shutdown\n   ip address 192.168.101.3/32\n!\ninterface
@@ -223,11 +223,11 @@ cvp_configlets:
     spine2\n   neighbor 192.168.101.13 peer group EVPN-OVERLAY-PEERS\n   neighbor
     192.168.101.13 remote-as 65001\n   neighbor 192.168.101.13 description spine3\n
     \  neighbor 192.168.103.12 peer group IPv4-UNDERLAY-PEERS\n   neighbor 192.168.103.12
-    remote-as 65001\n   neighbor 192.168.103.12 description spine1_Ethernet5\n   neighbor
+    remote-as 65001\n   neighbor 192.168.103.12 description spine1_Ethernet4\n   neighbor
     192.168.103.14 peer group IPv4-UNDERLAY-PEERS\n   neighbor 192.168.103.14 remote-as
-    65001\n   neighbor 192.168.103.14 description spine2_Ethernet5\n   neighbor 192.168.103.16
+    65001\n   neighbor 192.168.103.14 description spine2_Ethernet4\n   neighbor 192.168.103.16
     peer group IPv4-UNDERLAY-PEERS\n   neighbor 192.168.103.16 remote-as 65001\n   neighbor
-    192.168.103.16 description spine3_Ethernet5\n   redistribute connected route-map
+    192.168.103.16 description spine3_Ethernet4\n   redistribute connected route-map
     RM-CONN-2-BGP\n   !\n   vlan 10\n      rd 192.168.101.3:10010\n      route-target
     both 10010:10010\n      redistribute learned\n   !\n   vlan 20\n      rd 192.168.101.3:10020\n
     \     route-target both 10020:10020\n      redistribute learned\n   !\n   address-family
@@ -254,11 +254,11 @@ cvp_configlets:
     portfast\n!\ninterface Ethernet1\n   description MLAG_PEER_leaf3_Ethernet1\n   no
     shutdown\n   channel-group 1 mode active\n!\ninterface Ethernet2\n   description
     MLAG_PEER_leaf3_Ethernet2\n   no shutdown\n   channel-group 1 mode active\n!\ninterface
-    Ethernet3\n   description P2P_LINK_TO_SPINE1_Ethernet6\n   no shutdown\n   mtu
+    Ethernet3\n   description P2P_LINK_TO_SPINE1_Ethernet5\n   no shutdown\n   mtu
     1550\n   no switchport\n   ip address 192.168.103.19/31\n!\ninterface Ethernet4\n
-    \  description P2P_LINK_TO_SPINE2_Ethernet6\n   no shutdown\n   mtu 1550\n   no
+    \  description P2P_LINK_TO_SPINE2_Ethernet5\n   no shutdown\n   mtu 1550\n   no
     switchport\n   ip address 192.168.103.21/31\n!\ninterface Ethernet5\n   description
-    P2P_LINK_TO_SPINE3_Ethernet6\n   no shutdown\n   mtu 1550\n   no switchport\n
+    P2P_LINK_TO_SPINE3_Ethernet5\n   no shutdown\n   mtu 1550\n   no switchport\n
     \  ip address 192.168.103.23/31\n!\ninterface Ethernet7\n   description host2_Ethernet2\n
     \  no shutdown\n   channel-group 7 mode active\n!\ninterface Ethernet9\n   no
     shutdown\n   no switchport\n   vrf VRF_A\n   ip address 10.1.5.1/24\n!\ninterface
@@ -304,11 +304,11 @@ cvp_configlets:
     spine2\n   neighbor 192.168.101.13 peer group EVPN-OVERLAY-PEERS\n   neighbor
     192.168.101.13 remote-as 65001\n   neighbor 192.168.101.13 description spine3\n
     \  neighbor 192.168.103.18 peer group IPv4-UNDERLAY-PEERS\n   neighbor 192.168.103.18
-    remote-as 65001\n   neighbor 192.168.103.18 description spine1_Ethernet6\n   neighbor
+    remote-as 65001\n   neighbor 192.168.103.18 description spine1_Ethernet5\n   neighbor
     192.168.103.20 peer group IPv4-UNDERLAY-PEERS\n   neighbor 192.168.103.20 remote-as
-    65001\n   neighbor 192.168.103.20 description spine2_Ethernet6\n   neighbor 192.168.103.22
+    65001\n   neighbor 192.168.103.20 description spine2_Ethernet5\n   neighbor 192.168.103.22
     peer group IPv4-UNDERLAY-PEERS\n   neighbor 192.168.103.22 remote-as 65001\n   neighbor
-    192.168.103.22 description spine3_Ethernet6\n   redistribute connected route-map
+    192.168.103.22 description spine3_Ethernet5\n   redistribute connected route-map
     RM-CONN-2-BGP\n   !\n   vlan 10\n      rd 192.168.101.4:10010\n      route-target
     both 10010:10010\n      redistribute learned\n   !\n   vlan 20\n      rd 192.168.101.4:10020\n
     \     route-target both 10020:10020\n      redistribute learned\n   !\n   address-family
@@ -324,13 +324,13 @@ cvp_configlets:
   AVD_spine1: "!RANCID-CONTENT-TYPE: arista\n!\nvlan internal order ascending range
     1006 1199\n!\ntransceiver qsfp default-mode 4x10G\n!\nservice routing protocols
     model multi-agent\n!\nhostname spine1\ndns domain atd.lab\n!\nspanning-tree mode
-    none\n!\nno enable password\nno aaa root\n!\nvrf instance MGMT\n!\ninterface Ethernet3\n
+    none\n!\nno enable password\nno aaa root\n!\nvrf instance MGMT\n!\ninterface Ethernet2\n
     \  description P2P_LINK_TO_LEAF1_Ethernet3\n   no shutdown\n   mtu 1550\n   no
-    switchport\n   ip address 192.168.103.0/31\n!\ninterface Ethernet4\n   description
+    switchport\n   ip address 192.168.103.0/31\n!\ninterface Ethernet3\n   description
     P2P_LINK_TO_LEAF2_Ethernet3\n   no shutdown\n   mtu 1550\n   no switchport\n   ip
-    address 192.168.103.6/31\n!\ninterface Ethernet5\n   description P2P_LINK_TO_LEAF3_Ethernet3\n
+    address 192.168.103.6/31\n!\ninterface Ethernet4\n   description P2P_LINK_TO_LEAF3_Ethernet3\n
     \  no shutdown\n   mtu 1550\n   no switchport\n   ip address 192.168.103.12/31\n!\ninterface
-    Ethernet6\n   description P2P_LINK_TO_LEAF4_Ethernet3\n   no shutdown\n   mtu
+    Ethernet5\n   description P2P_LINK_TO_LEAF4_Ethernet3\n   no shutdown\n   mtu
     1550\n   no switchport\n   ip address 192.168.103.18/31\n!\ninterface Loopback0\n
     \  description EVPN_Overlay_Peering\n   no shutdown\n   ip address 192.168.101.11/32\n!\ninterface
     Management1\n   description oob_management\n   no shutdown\n   vrf MGMT\n   ip
@@ -367,13 +367,13 @@ cvp_configlets:
   AVD_spine2: "!RANCID-CONTENT-TYPE: arista\n!\nvlan internal order ascending range
     1006 1199\n!\ntransceiver qsfp default-mode 4x10G\n!\nservice routing protocols
     model multi-agent\n!\nhostname spine2\ndns domain atd.lab\n!\nspanning-tree mode
-    none\n!\nno enable password\nno aaa root\n!\nvrf instance MGMT\n!\ninterface Ethernet3\n
+    none\n!\nno enable password\nno aaa root\n!\nvrf instance MGMT\n!\ninterface Ethernet2\n
     \  description P2P_LINK_TO_LEAF1_Ethernet4\n   no shutdown\n   mtu 1550\n   no
-    switchport\n   ip address 192.168.103.2/31\n!\ninterface Ethernet4\n   description
+    switchport\n   ip address 192.168.103.2/31\n!\ninterface Ethernet3\n   description
     P2P_LINK_TO_LEAF2_Ethernet4\n   no shutdown\n   mtu 1550\n   no switchport\n   ip
-    address 192.168.103.8/31\n!\ninterface Ethernet5\n   description P2P_LINK_TO_LEAF3_Ethernet4\n
+    address 192.168.103.8/31\n!\ninterface Ethernet4\n   description P2P_LINK_TO_LEAF3_Ethernet4\n
     \  no shutdown\n   mtu 1550\n   no switchport\n   ip address 192.168.103.14/31\n!\ninterface
-    Ethernet6\n   description P2P_LINK_TO_LEAF4_Ethernet4\n   no shutdown\n   mtu
+    Ethernet5\n   description P2P_LINK_TO_LEAF4_Ethernet4\n   no shutdown\n   mtu
     1550\n   no switchport\n   ip address 192.168.103.20/31\n!\ninterface Loopback0\n
     \  description EVPN_Overlay_Peering\n   no shutdown\n   ip address 192.168.101.12/32\n!\ninterface
     Management1\n   description oob_management\n   no shutdown\n   vrf MGMT\n   ip
@@ -410,13 +410,13 @@ cvp_configlets:
   AVD_spine3: "!RANCID-CONTENT-TYPE: arista\n!\nvlan internal order ascending range
     1006 1199\n!\ntransceiver qsfp default-mode 4x10G\n!\nservice routing protocols
     model multi-agent\n!\nhostname spine3\ndns domain atd.lab\n!\nspanning-tree mode
-    none\n!\nno enable password\nno aaa root\n!\nvrf instance MGMT\n!\ninterface Ethernet3\n
+    none\n!\nno enable password\nno aaa root\n!\nvrf instance MGMT\n!\ninterface Ethernet2\n
     \  description P2P_LINK_TO_LEAF1_Ethernet5\n   no shutdown\n   mtu 1550\n   no
-    switchport\n   ip address 192.168.103.4/31\n!\ninterface Ethernet4\n   description
+    switchport\n   ip address 192.168.103.4/31\n!\ninterface Ethernet3\n   description
     P2P_LINK_TO_LEAF2_Ethernet5\n   no shutdown\n   mtu 1550\n   no switchport\n   ip
-    address 192.168.103.10/31\n!\ninterface Ethernet5\n   description P2P_LINK_TO_LEAF3_Ethernet5\n
+    address 192.168.103.10/31\n!\ninterface Ethernet4\n   description P2P_LINK_TO_LEAF3_Ethernet5\n
     \  no shutdown\n   mtu 1550\n   no switchport\n   ip address 192.168.103.16/31\n!\ninterface
-    Ethernet6\n   description P2P_LINK_TO_LEAF4_Ethernet5\n   no shutdown\n   mtu
+    Ethernet5\n   description P2P_LINK_TO_LEAF4_Ethernet5\n   no shutdown\n   mtu
     1550\n   no switchport\n   ip address 192.168.103.22/31\n!\ninterface Loopback0\n
     \  description EVPN_Overlay_Peering\n   no shutdown\n   ip address 192.168.101.13/32\n!\ninterface
     Management1\n   description oob_management\n   no shutdown\n   vrf MGMT\n   ip

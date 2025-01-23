@@ -96,7 +96,7 @@ management_api_http:
   - name: MGMT
   enable_https: true
 ethernet_interfaces:
-- name: Ethernet3
+- name: Ethernet2
   peer: leaf1
   peer_interface: Ethernet3
   peer_type: l3leaf
@@ -105,7 +105,7 @@ ethernet_interfaces:
   mtu: 1550
   type: routed
   ip_address: 192.168.103.0/31
-- name: Ethernet4
+- name: Ethernet3
   peer: leaf2
   peer_interface: Ethernet3
   peer_type: l3leaf
@@ -114,7 +114,7 @@ ethernet_interfaces:
   mtu: 1550
   type: routed
   ip_address: 192.168.103.6/31
-- name: Ethernet5
+- name: Ethernet4
   peer: leaf3
   peer_interface: Ethernet3
   peer_type: l3leaf
@@ -123,7 +123,7 @@ ethernet_interfaces:
   mtu: 1550
   type: routed
   ip_address: 192.168.103.12/31
-- name: Ethernet6
+- name: Ethernet5
   peer: leaf4
   peer_interface: Ethernet3
   peer_type: l3leaf

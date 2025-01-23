@@ -38,20 +38,20 @@
 | ---- | ---- | -------------- | --------- | ----------| -------------- |
 | l3leaf | leaf1 | Ethernet1 | mlag_peer | leaf2 | Ethernet1 |
 | l3leaf | leaf1 | Ethernet2 | mlag_peer | leaf2 | Ethernet2 |
-| l3leaf | leaf1 | Ethernet3 | spine | spine1 | Ethernet3 |
-| l3leaf | leaf1 | Ethernet4 | spine | spine2 | Ethernet3 |
-| l3leaf | leaf1 | Ethernet5 | spine | spine3 | Ethernet3 |
-| l3leaf | leaf2 | Ethernet3 | spine | spine1 | Ethernet4 |
-| l3leaf | leaf2 | Ethernet4 | spine | spine2 | Ethernet4 |
-| l3leaf | leaf2 | Ethernet5 | spine | spine3 | Ethernet4 |
+| l3leaf | leaf1 | Ethernet3 | spine | spine1 | Ethernet2 |
+| l3leaf | leaf1 | Ethernet4 | spine | spine2 | Ethernet2 |
+| l3leaf | leaf1 | Ethernet5 | spine | spine3 | Ethernet2 |
+| l3leaf | leaf2 | Ethernet3 | spine | spine1 | Ethernet3 |
+| l3leaf | leaf2 | Ethernet4 | spine | spine2 | Ethernet3 |
+| l3leaf | leaf2 | Ethernet5 | spine | spine3 | Ethernet3 |
 | l3leaf | leaf3 | Ethernet1 | mlag_peer | leaf4 | Ethernet1 |
 | l3leaf | leaf3 | Ethernet2 | mlag_peer | leaf4 | Ethernet2 |
-| l3leaf | leaf3 | Ethernet3 | spine | spine1 | Ethernet5 |
-| l3leaf | leaf3 | Ethernet4 | spine | spine2 | Ethernet5 |
-| l3leaf | leaf3 | Ethernet5 | spine | spine3 | Ethernet5 |
-| l3leaf | leaf4 | Ethernet3 | spine | spine1 | Ethernet6 |
-| l3leaf | leaf4 | Ethernet4 | spine | spine2 | Ethernet6 |
-| l3leaf | leaf4 | Ethernet5 | spine | spine3 | Ethernet6 |
+| l3leaf | leaf3 | Ethernet3 | spine | spine1 | Ethernet4 |
+| l3leaf | leaf3 | Ethernet4 | spine | spine2 | Ethernet4 |
+| l3leaf | leaf3 | Ethernet5 | spine | spine3 | Ethernet4 |
+| l3leaf | leaf4 | Ethernet3 | spine | spine1 | Ethernet5 |
+| l3leaf | leaf4 | Ethernet4 | spine | spine2 | Ethernet5 |
+| l3leaf | leaf4 | Ethernet5 | spine | spine3 | Ethernet5 |
 
 ## Fabric IP Allocation
 
@@ -65,18 +65,18 @@
 
 | Node | Node Interface | Node IP Address | Peer Node | Peer Interface | Peer IP Address |
 | ---- | -------------- | --------------- | --------- | -------------- | --------------- |
-| leaf1 | Ethernet3 | 192.168.103.1/31 | spine1 | Ethernet3 | 192.168.103.0/31 |
-| leaf1 | Ethernet4 | 192.168.103.3/31 | spine2 | Ethernet3 | 192.168.103.2/31 |
-| leaf1 | Ethernet5 | 192.168.103.5/31 | spine3 | Ethernet3 | 192.168.103.4/31 |
-| leaf2 | Ethernet3 | 192.168.103.7/31 | spine1 | Ethernet4 | 192.168.103.6/31 |
-| leaf2 | Ethernet4 | 192.168.103.9/31 | spine2 | Ethernet4 | 192.168.103.8/31 |
-| leaf2 | Ethernet5 | 192.168.103.11/31 | spine3 | Ethernet4 | 192.168.103.10/31 |
-| leaf3 | Ethernet3 | 192.168.103.13/31 | spine1 | Ethernet5 | 192.168.103.12/31 |
-| leaf3 | Ethernet4 | 192.168.103.15/31 | spine2 | Ethernet5 | 192.168.103.14/31 |
-| leaf3 | Ethernet5 | 192.168.103.17/31 | spine3 | Ethernet5 | 192.168.103.16/31 |
-| leaf4 | Ethernet3 | 192.168.103.19/31 | spine1 | Ethernet6 | 192.168.103.18/31 |
-| leaf4 | Ethernet4 | 192.168.103.21/31 | spine2 | Ethernet6 | 192.168.103.20/31 |
-| leaf4 | Ethernet5 | 192.168.103.23/31 | spine3 | Ethernet6 | 192.168.103.22/31 |
+| leaf1 | Ethernet3 | 192.168.103.1/31 | spine1 | Ethernet2 | 192.168.103.0/31 |
+| leaf1 | Ethernet4 | 192.168.103.3/31 | spine2 | Ethernet2 | 192.168.103.2/31 |
+| leaf1 | Ethernet5 | 192.168.103.5/31 | spine3 | Ethernet2 | 192.168.103.4/31 |
+| leaf2 | Ethernet3 | 192.168.103.7/31 | spine1 | Ethernet3 | 192.168.103.6/31 |
+| leaf2 | Ethernet4 | 192.168.103.9/31 | spine2 | Ethernet3 | 192.168.103.8/31 |
+| leaf2 | Ethernet5 | 192.168.103.11/31 | spine3 | Ethernet3 | 192.168.103.10/31 |
+| leaf3 | Ethernet3 | 192.168.103.13/31 | spine1 | Ethernet4 | 192.168.103.12/31 |
+| leaf3 | Ethernet4 | 192.168.103.15/31 | spine2 | Ethernet4 | 192.168.103.14/31 |
+| leaf3 | Ethernet5 | 192.168.103.17/31 | spine3 | Ethernet4 | 192.168.103.16/31 |
+| leaf4 | Ethernet3 | 192.168.103.19/31 | spine1 | Ethernet5 | 192.168.103.18/31 |
+| leaf4 | Ethernet4 | 192.168.103.21/31 | spine2 | Ethernet5 | 192.168.103.20/31 |
+| leaf4 | Ethernet5 | 192.168.103.23/31 | spine3 | Ethernet5 | 192.168.103.22/31 |
 
 ### Loopback Interfaces (BGP EVPN Peering)
 

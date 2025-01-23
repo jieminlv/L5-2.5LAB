@@ -226,9 +226,9 @@ vlan 4094
 
 | Interface | Description | Type | Channel Group | IP Address | VRF |  MTU | Shutdown | ACL In | ACL Out |
 | --------- | ----------- | -----| ------------- | ---------- | ----| ---- | -------- | ------ | ------- |
-| Ethernet3 | P2P_LINK_TO_SPINE1_Ethernet6 | routed | - | 192.168.103.19/31 | default | 1550 | False | - | - |
-| Ethernet4 | P2P_LINK_TO_SPINE2_Ethernet6 | routed | - | 192.168.103.21/31 | default | 1550 | False | - | - |
-| Ethernet5 | P2P_LINK_TO_SPINE3_Ethernet6 | routed | - | 192.168.103.23/31 | default | 1550 | False | - | - |
+| Ethernet3 | P2P_LINK_TO_SPINE1_Ethernet5 | routed | - | 192.168.103.19/31 | default | 1550 | False | - | - |
+| Ethernet4 | P2P_LINK_TO_SPINE2_Ethernet5 | routed | - | 192.168.103.21/31 | default | 1550 | False | - | - |
+| Ethernet5 | P2P_LINK_TO_SPINE3_Ethernet5 | routed | - | 192.168.103.23/31 | default | 1550 | False | - | - |
 | Ethernet9 | - | routed | - | 10.1.5.1/24 | VRF_A | - | False | - | - |
 
 #### Ethernet Interfaces Device Configuration
@@ -246,21 +246,21 @@ interface Ethernet2
    channel-group 1 mode active
 !
 interface Ethernet3
-   description P2P_LINK_TO_SPINE1_Ethernet6
+   description P2P_LINK_TO_SPINE1_Ethernet5
    no shutdown
    mtu 1550
    no switchport
    ip address 192.168.103.19/31
 !
 interface Ethernet4
-   description P2P_LINK_TO_SPINE2_Ethernet6
+   description P2P_LINK_TO_SPINE2_Ethernet5
    no shutdown
    mtu 1550
    no switchport
    ip address 192.168.103.21/31
 !
 interface Ethernet5
-   description P2P_LINK_TO_SPINE3_Ethernet6
+   description P2P_LINK_TO_SPINE3_Ethernet5
    no shutdown
    mtu 1550
    no switchport
@@ -624,13 +624,13 @@ router bgp 65299
    neighbor 192.168.101.13 description spine3
    neighbor 192.168.103.18 peer group IPv4-UNDERLAY-PEERS
    neighbor 192.168.103.18 remote-as 65001
-   neighbor 192.168.103.18 description spine1_Ethernet6
+   neighbor 192.168.103.18 description spine1_Ethernet5
    neighbor 192.168.103.20 peer group IPv4-UNDERLAY-PEERS
    neighbor 192.168.103.20 remote-as 65001
-   neighbor 192.168.103.20 description spine2_Ethernet6
+   neighbor 192.168.103.20 description spine2_Ethernet5
    neighbor 192.168.103.22 peer group IPv4-UNDERLAY-PEERS
    neighbor 192.168.103.22 remote-as 65001
-   neighbor 192.168.103.22 description spine3_Ethernet6
+   neighbor 192.168.103.22 description spine3_Ethernet5
    redistribute connected route-map RM-CONN-2-BGP
    !
    vlan 10

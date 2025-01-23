@@ -141,37 +141,37 @@ vlan internal order ascending range 1006 1199
 
 | Interface | Description | Type | Channel Group | IP Address | VRF |  MTU | Shutdown | ACL In | ACL Out |
 | --------- | ----------- | -----| ------------- | ---------- | ----| ---- | -------- | ------ | ------- |
-| Ethernet3 | P2P_LINK_TO_LEAF1_Ethernet5 | routed | - | 192.168.103.4/31 | default | 1550 | False | - | - |
-| Ethernet4 | P2P_LINK_TO_LEAF2_Ethernet5 | routed | - | 192.168.103.10/31 | default | 1550 | False | - | - |
-| Ethernet5 | P2P_LINK_TO_LEAF3_Ethernet5 | routed | - | 192.168.103.16/31 | default | 1550 | False | - | - |
-| Ethernet6 | P2P_LINK_TO_LEAF4_Ethernet5 | routed | - | 192.168.103.22/31 | default | 1550 | False | - | - |
+| Ethernet2 | P2P_LINK_TO_LEAF1_Ethernet5 | routed | - | 192.168.103.4/31 | default | 1550 | False | - | - |
+| Ethernet3 | P2P_LINK_TO_LEAF2_Ethernet5 | routed | - | 192.168.103.10/31 | default | 1550 | False | - | - |
+| Ethernet4 | P2P_LINK_TO_LEAF3_Ethernet5 | routed | - | 192.168.103.16/31 | default | 1550 | False | - | - |
+| Ethernet5 | P2P_LINK_TO_LEAF4_Ethernet5 | routed | - | 192.168.103.22/31 | default | 1550 | False | - | - |
 
 #### Ethernet Interfaces Device Configuration
 
 ```eos
 !
-interface Ethernet3
+interface Ethernet2
    description P2P_LINK_TO_LEAF1_Ethernet5
    no shutdown
    mtu 1550
    no switchport
    ip address 192.168.103.4/31
 !
-interface Ethernet4
+interface Ethernet3
    description P2P_LINK_TO_LEAF2_Ethernet5
    no shutdown
    mtu 1550
    no switchport
    ip address 192.168.103.10/31
 !
-interface Ethernet5
+interface Ethernet4
    description P2P_LINK_TO_LEAF3_Ethernet5
    no shutdown
    mtu 1550
    no switchport
    ip address 192.168.103.16/31
 !
-interface Ethernet6
+interface Ethernet5
    description P2P_LINK_TO_LEAF4_Ethernet5
    no shutdown
    mtu 1550

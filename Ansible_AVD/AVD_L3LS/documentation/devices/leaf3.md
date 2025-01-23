@@ -226,9 +226,9 @@ vlan 4094
 
 | Interface | Description | Type | Channel Group | IP Address | VRF |  MTU | Shutdown | ACL In | ACL Out |
 | --------- | ----------- | -----| ------------- | ---------- | ----| ---- | -------- | ------ | ------- |
-| Ethernet3 | P2P_LINK_TO_SPINE1_Ethernet5 | routed | - | 192.168.103.13/31 | default | 1550 | False | - | - |
-| Ethernet4 | P2P_LINK_TO_SPINE2_Ethernet5 | routed | - | 192.168.103.15/31 | default | 1550 | False | - | - |
-| Ethernet5 | P2P_LINK_TO_SPINE3_Ethernet5 | routed | - | 192.168.103.17/31 | default | 1550 | False | - | - |
+| Ethernet3 | P2P_LINK_TO_SPINE1_Ethernet4 | routed | - | 192.168.103.13/31 | default | 1550 | False | - | - |
+| Ethernet4 | P2P_LINK_TO_SPINE2_Ethernet4 | routed | - | 192.168.103.15/31 | default | 1550 | False | - | - |
+| Ethernet5 | P2P_LINK_TO_SPINE3_Ethernet4 | routed | - | 192.168.103.17/31 | default | 1550 | False | - | - |
 
 #### Ethernet Interfaces Device Configuration
 
@@ -245,21 +245,21 @@ interface Ethernet2
    channel-group 1 mode active
 !
 interface Ethernet3
-   description P2P_LINK_TO_SPINE1_Ethernet5
+   description P2P_LINK_TO_SPINE1_Ethernet4
    no shutdown
    mtu 1550
    no switchport
    ip address 192.168.103.13/31
 !
 interface Ethernet4
-   description P2P_LINK_TO_SPINE2_Ethernet5
+   description P2P_LINK_TO_SPINE2_Ethernet4
    no shutdown
    mtu 1550
    no switchport
    ip address 192.168.103.15/31
 !
 interface Ethernet5
-   description P2P_LINK_TO_SPINE3_Ethernet5
+   description P2P_LINK_TO_SPINE3_Ethernet4
    no shutdown
    mtu 1550
    no switchport
@@ -616,13 +616,13 @@ router bgp 65299
    neighbor 192.168.101.13 description spine3
    neighbor 192.168.103.12 peer group IPv4-UNDERLAY-PEERS
    neighbor 192.168.103.12 remote-as 65001
-   neighbor 192.168.103.12 description spine1_Ethernet5
+   neighbor 192.168.103.12 description spine1_Ethernet4
    neighbor 192.168.103.14 peer group IPv4-UNDERLAY-PEERS
    neighbor 192.168.103.14 remote-as 65001
-   neighbor 192.168.103.14 description spine2_Ethernet5
+   neighbor 192.168.103.14 description spine2_Ethernet4
    neighbor 192.168.103.16 peer group IPv4-UNDERLAY-PEERS
    neighbor 192.168.103.16 remote-as 65001
-   neighbor 192.168.103.16 description spine3_Ethernet5
+   neighbor 192.168.103.16 description spine3_Ethernet4
    redistribute connected route-map RM-CONN-2-BGP
    !
    vlan 10
