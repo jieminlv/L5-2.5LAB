@@ -3,6 +3,7 @@
 ## Table of Contents
 
 - [Management](#management)
+  - [Management Interfaces](#management-interfaces)
   - [DNS Domain](#dns-domain)
   - [Management API HTTP](#management-api-http)
 - [Spanning Tree](#spanning-tree)
@@ -30,6 +31,33 @@
   - [VRF Instances Device Configuration](#vrf-instances-device-configuration)
 
 ## Management
+
+### Management Interfaces
+
+#### Management Interfaces Summary
+
+##### IPv4
+
+| Management Interface | description | Type | VRF | IP Address | Gateway |
+| -------------------- | ----------- | ---- | --- | ---------- | ------- |
+| Management1 | oob_management | oob | MGMT | 192.168.50.250/24 | 192.168.50.1 |
+
+##### IPv6
+
+| Management Interface | description | Type | VRF | IPv6 Address | IPv6 Gateway |
+| -------------------- | ----------- | ---- | --- | ------------ | ------------ |
+| Management1 | oob_management | oob | MGMT | - | - |
+
+#### Management Interfaces Device Configuration
+
+```eos
+!
+interface Management1
+   description oob_management
+   no shutdown
+   vrf MGMT
+   ip address 192.168.50.250/24
+```
 
 ### DNS Domain
 
@@ -221,13 +249,13 @@ no ip routing vrf MGMT
 
 | VRF | Destination Prefix | Next Hop IP             | Exit interface      | Administrative Distance       | Tag               | Route Name                    | Metric         |
 | --- | ------------------ | ----------------------- | ------------------- | ----------------------------- | ----------------- | ----------------------------- | -------------- |
-| MGMT | 0.0.0.0/0 | 192.168.0.1 | - | 1 | - | - | - |
+| MGMT | 0.0.0.0/0 | 192.168.50.1 | - | 1 | - | - | - |
 
 #### Static Routes Device Configuration
 
 ```eos
 !
-ip route vrf MGMT 0.0.0.0/0 192.168.0.1
+ip route vrf MGMT 0.0.0.0/0 192.168.50.1
 ```
 
 ### Router BGP
