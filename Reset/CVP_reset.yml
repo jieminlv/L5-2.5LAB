@@ -31,17 +31,15 @@
     #     validate_mode: ignore
     #     devices: "{{ VALIDATE_DEVICES }}"
 
-    # - name: Query task completion
-    #   arista.cvp.cv_task_v3:
-    #     state: query
-    #     task_id: "{{ APPLY_RESULTS.taskIds }}"  # Referencing APPLY_RESULTS for task ID
-    #   register: task_status
+    - name: Query task completion
+      arista.cvp.cv_task_v3:
+        state: query
+        task_id: "{{ APPLY_RESULTS.taskIds }}"  # Referencing APPLY_RESULTS for task ID
+      register: task_status
 
-
-
-    - name: Debug APPLY_RESULTS
-      debug:
-        msg: "{{ APPLY_RESULTS }}"
+    # - name: Debug APPLY_RESULTS
+    #   debug:
+    #     msg: "{{ APPLY_RESULTS }}"
 
 
 
