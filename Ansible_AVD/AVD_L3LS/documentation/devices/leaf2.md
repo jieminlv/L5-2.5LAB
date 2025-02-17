@@ -180,7 +180,11 @@ vlan internal order ascending range 1006 1199
 | 10 | DMZ | - |
 | 20 | Internal | - |
 | 30 | Staging | - |
+| 40 | DMZ-1 | - |
+| 50 | Internal-1 | - |
+| 60 | Staging-1 | - |
 | 3009 | MLAG_iBGP_VRF_A | LEAF_PEER_L3 |
+| 3019 | MLAG_iBGP_VRF_B | LEAF_PEER_L3 |
 | 4093 | LEAF_PEER_L3 | LEAF_PEER_L3 |
 | 4094 | MLAG_PEER | MLAG |
 
@@ -197,8 +201,21 @@ vlan 20
 vlan 30
    name Staging
 !
+vlan 40
+   name DMZ-1
+!
+vlan 50
+   name Internal-1
+!
+vlan 60
+   name Staging-1
+!
 vlan 3009
    name MLAG_iBGP_VRF_A
+   trunk group LEAF_PEER_L3
+!
+vlan 3019
+   name MLAG_iBGP_VRF_B
    trunk group LEAF_PEER_L3
 !
 vlan 4093
@@ -350,7 +367,11 @@ interface Loopback1
 | Vlan10 | DMZ | VRF_A | - | False |
 | Vlan20 | Internal | VRF_A | - | False |
 | Vlan30 | Staging | VRF_A | - | False |
+| Vlan40 | DMZ-1 | VRF_B | - | False |
+| Vlan50 | Internal-1 | VRF_B | - | False |
+| Vlan60 | Staging-1 | VRF_B | - | False |
 | Vlan3009 | MLAG_PEER_L3_iBGP: vrf VRF_A | VRF_A | 1550 | False |
+| Vlan3019 | MLAG_PEER_L3_iBGP: vrf VRF_B | VRF_B | 1550 | False |
 | Vlan4093 | MLAG_PEER_L3_PEERING | default | 1550 | False |
 | Vlan4094 | MLAG_PEER | default | 1550 | False |
 
@@ -361,7 +382,11 @@ interface Loopback1
 | Vlan10 |  VRF_A  |  -  |  10.1.10.1/24  |  -  |  -  |  -  |  -  |
 | Vlan20 |  VRF_A  |  -  |  10.1.20.1/24  |  -  |  -  |  -  |  -  |
 | Vlan30 |  VRF_A  |  -  |  10.1.30.1/24  |  -  |  -  |  -  |  -  |
+| Vlan40 |  VRF_B  |  -  |  10.1.10.1/24  |  -  |  -  |  -  |  -  |
+| Vlan50 |  VRF_B  |  -  |  10.1.20.1/24  |  -  |  -  |  -  |  -  |
+| Vlan60 |  VRF_B  |  -  |  10.1.30.1/24  |  -  |  -  |  -  |  -  |
 | Vlan3009 |  VRF_A  |  10.255.251.1/31  |  -  |  -  |  -  |  -  |  -  |
+| Vlan3019 |  VRF_B  |  10.255.251.1/31  |  -  |  -  |  -  |  -  |  -  |
 | Vlan4093 |  default  |  10.255.251.1/31  |  -  |  -  |  -  |  -  |  -  |
 | Vlan4094 |  default  |  10.255.252.1/31  |  -  |  -  |  -  |  -  |  -  |
 
@@ -387,11 +412,36 @@ interface Vlan30
    vrf VRF_A
    ip address virtual 10.1.30.1/24
 !
+interface Vlan40
+   description DMZ-1
+   no shutdown
+   vrf VRF_B
+   ip address virtual 10.1.10.1/24
+!
+interface Vlan50
+   description Internal-1
+   no shutdown
+   vrf VRF_B
+   ip address virtual 10.1.20.1/24
+!
+interface Vlan60
+   description Staging-1
+   no shutdown
+   vrf VRF_B
+   ip address virtual 10.1.30.1/24
+!
 interface Vlan3009
    description MLAG_PEER_L3_iBGP: vrf VRF_A
    no shutdown
    mtu 1550
    vrf VRF_A
+   ip address 10.255.251.1/31
+!
+interface Vlan3019
+   description MLAG_PEER_L3_iBGP: vrf VRF_B
+   no shutdown
+   mtu 1550
+   vrf VRF_B
    ip address 10.255.251.1/31
 !
 interface Vlan4093
@@ -425,12 +475,16 @@ interface Vlan4094
 | 10 | 10010 | - | - |
 | 20 | 10020 | - | - |
 | 30 | 10030 | - | - |
+| 40 | 10040 | - | - |
+| 50 | 10050 | - | - |
+| 60 | 10060 | - | - |
 
 ##### VRF to VNI and Multicast Group Mappings
 
 | VRF | VNI | Multicast Group |
 | ---- | --- | --------------- |
 | VRF_A | 10 | - |
+| VRF_B | 20 | - |
 
 #### VXLAN Interface Device Configuration
 
@@ -444,7 +498,11 @@ interface Vxlan1
    vxlan vlan 10 vni 10010
    vxlan vlan 20 vni 10020
    vxlan vlan 30 vni 10030
+   vxlan vlan 40 vni 10040
+   vxlan vlan 50 vni 10050
+   vxlan vlan 60 vni 10060
    vxlan vrf VRF_A vni 10
+   vxlan vrf VRF_B vni 20
 ```
 
 ## Routing
@@ -480,6 +538,7 @@ ip virtual-router mac-address 00:1c:73:00:00:99
 | default | True |
 | MGMT | False |
 | VRF_A | True |
+| VRF_B | True |
 
 #### IP Routing Device Configuration
 
@@ -488,6 +547,7 @@ ip virtual-router mac-address 00:1c:73:00:00:99
 ip routing
 no ip routing vrf MGMT
 ip routing vrf VRF_A
+ip routing vrf VRF_B
 ```
 
 ### IPv6 Routing
@@ -499,6 +559,7 @@ ip routing vrf VRF_A
 | default | False |
 | MGMT | false |
 | VRF_A | false |
+| VRF_B | false |
 
 ### Static Routes
 
@@ -571,6 +632,7 @@ ip route vrf MGMT 0.0.0.0/0 192.168.50.1
 | 192.168.103.8 | 65001 | default | - | Inherited from peer group IPv4-UNDERLAY-PEERS | Inherited from peer group IPv4-UNDERLAY-PEERS | - | - | - | - | - |
 | 192.168.103.10 | 65001 | default | - | Inherited from peer group IPv4-UNDERLAY-PEERS | Inherited from peer group IPv4-UNDERLAY-PEERS | - | - | - | - | - |
 | 10.255.251.0 | Inherited from peer group MLAG-IPv4-UNDERLAY-PEER | VRF_A | - | Inherited from peer group MLAG-IPv4-UNDERLAY-PEER | Inherited from peer group MLAG-IPv4-UNDERLAY-PEER | - | - | - | - | - |
+| 10.255.251.0 | Inherited from peer group MLAG-IPv4-UNDERLAY-PEER | VRF_B | - | Inherited from peer group MLAG-IPv4-UNDERLAY-PEER | Inherited from peer group MLAG-IPv4-UNDERLAY-PEER | - | - | - | - | - |
 
 #### Router BGP EVPN Address Family
 
@@ -587,12 +649,16 @@ ip route vrf MGMT 0.0.0.0/0 192.168.50.1
 | 10 | 192.168.101.2:10010 | 10010:10010 | - | - | learned |
 | 20 | 192.168.101.2:10020 | 10020:10020 | - | - | learned |
 | 30 | 192.168.101.2:10030 | 10030:10030 | - | - | learned |
+| 40 | 192.168.101.2:10040 | 10040:10040 | - | - | learned |
+| 50 | 192.168.101.2:10050 | 10050:10050 | - | - | learned |
+| 60 | 192.168.101.2:10060 | 10060:10060 | - | - | learned |
 
 #### Router BGP VRFs
 
 | VRF | Route-Distinguisher | Redistribute |
 | --- | ------------------- | ------------ |
 | VRF_A | 192.168.101.2:10 | connected |
+| VRF_B | 192.168.101.2:20 | connected |
 
 #### Router BGP Device Configuration
 
@@ -655,6 +721,21 @@ router bgp 65100
       route-target both 10030:10030
       redistribute learned
    !
+   vlan 40
+      rd 192.168.101.2:10040
+      route-target both 10040:10040
+      redistribute learned
+   !
+   vlan 50
+      rd 192.168.101.2:10050
+      route-target both 10050:10050
+      redistribute learned
+   !
+   vlan 60
+      rd 192.168.101.2:10060
+      route-target both 10060:10060
+      redistribute learned
+   !
    address-family evpn
       neighbor EVPN-OVERLAY-PEERS activate
    !
@@ -667,6 +748,14 @@ router bgp 65100
       rd 192.168.101.2:10
       route-target import evpn 10:10
       route-target export evpn 10:10
+      router-id 192.168.101.2
+      neighbor 10.255.251.0 peer group MLAG-IPv4-UNDERLAY-PEER
+      redistribute connected
+   !
+   vrf VRF_B
+      rd 192.168.101.2:20
+      route-target import evpn 20:20
+      route-target export evpn 20:20
       router-id 192.168.101.2
       neighbor 10.255.251.0 peer group MLAG-IPv4-UNDERLAY-PEER
       redistribute connected
@@ -763,6 +852,7 @@ route-map RM-MLAG-PEER-IN permit 10
 | -------- | ---------- |
 | MGMT | disabled |
 | VRF_A | enabled |
+| VRF_B | enabled |
 
 ### VRF Instances Device Configuration
 
@@ -771,4 +861,6 @@ route-map RM-MLAG-PEER-IN permit 10
 vrf instance MGMT
 !
 vrf instance VRF_A
+!
+vrf instance VRF_B
 ```

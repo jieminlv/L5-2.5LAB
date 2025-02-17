@@ -95,6 +95,23 @@ router_bgp:
       neighbors:
       - ip_address: 10.1.5.254
         activate: true
+  - name: VRF_B
+    router_id: 192.168.101.4
+    rd: 192.168.101.4:20
+    route_targets:
+      import:
+      - address_family: evpn
+        route_targets:
+        - '20:20'
+      export:
+      - address_family: evpn
+        route_targets:
+        - '20:20'
+    redistribute_routes:
+    - source_protocol: connected
+    neighbors:
+    - ip_address: 10.255.251.4
+      peer_group: MLAG-IPv4-UNDERLAY-PEER
   vlans:
   - id: 10
     tenant: ACME
@@ -120,6 +137,30 @@ router_bgp:
       - 10030:10030
     redistribute_routes:
     - learned
+  - id: 40
+    tenant: ACME
+    rd: 192.168.101.4:10040
+    route_targets:
+      both:
+      - 10040:10040
+    redistribute_routes:
+    - learned
+  - id: 50
+    tenant: ACME
+    rd: 192.168.101.4:10050
+    route_targets:
+      both:
+      - 10050:10050
+    redistribute_routes:
+    - learned
+  - id: 60
+    tenant: ACME
+    rd: 192.168.101.4:10060
+    route_targets:
+      both:
+      - 10060:10060
+    redistribute_routes:
+    - learned
 static_routes:
 - vrf: MGMT
   destination_address_prefix: 0.0.0.0/0
@@ -141,6 +182,9 @@ vrfs:
 - name: MGMT
   ip_routing: false
 - name: VRF_A
+  tenant: ACME
+  ip_routing: true
+- name: VRF_B
   tenant: ACME
   ip_routing: true
 management_interfaces:
@@ -180,6 +224,20 @@ vlans:
   trunk_groups:
   - LEAF_PEER_L3
   tenant: ACME
+- id: 40
+  name: DMZ-1
+  tenant: ACME
+- id: 50
+  name: Internal-1
+  tenant: ACME
+- id: 60
+  name: Staging-1
+  tenant: ACME
+- id: 3019
+  name: MLAG_iBGP_VRF_B
+  trunk_groups:
+  - LEAF_PEER_L3
+  tenant: ACME
 vlan_interfaces:
 - name: Vlan4093
   description: MLAG_PEER_L3_PEERING
@@ -216,6 +274,32 @@ vlan_interfaces:
   shutdown: false
   description: 'MLAG_PEER_L3_iBGP: vrf VRF_A'
   vrf: VRF_A
+  mtu: 1550
+  ip_address: 10.255.251.5/31
+- name: Vlan40
+  tenant: ACME
+  description: DMZ-1
+  shutdown: false
+  ip_address_virtual: 10.1.10.1/24
+  vrf: VRF_B
+- name: Vlan50
+  tenant: ACME
+  description: Internal-1
+  shutdown: false
+  ip_address_virtual: 10.1.20.1/24
+  vrf: VRF_B
+- name: Vlan60
+  tenant: ACME
+  description: Staging-1
+  shutdown: false
+  ip_address_virtual: 10.1.30.1/24
+  vrf: VRF_B
+- name: Vlan3019
+  tenant: ACME
+  type: underlay_peering
+  shutdown: false
+  description: 'MLAG_PEER_L3_iBGP: vrf VRF_B'
+  vrf: VRF_B
   mtu: 1550
   ip_address: 10.255.251.5/31
 port_channel_interfaces:
@@ -358,6 +442,14 @@ vxlan_interface:
         vni: 10020
       - id: 30
         vni: 10030
+      - id: 40
+        vni: 10040
+      - id: 50
+        vni: 10050
+      - id: 60
+        vni: 10060
       vrfs:
       - name: VRF_A
         vni: 10
+      - name: VRF_B
+        vni: 20
