@@ -14,6 +14,10 @@ tenants:
             name: Internal
             enabled: true
             ip_address_virtual: 10.1.20.1/24
+          - id: 30
+            name: Staging 
+            enabled: true
+            ip_address_virtual: 10.1.30.1/24
         l3_interfaces:
           - interfaces: [Ethernet9]
             ip_addresses: [10.1.5.1/24]

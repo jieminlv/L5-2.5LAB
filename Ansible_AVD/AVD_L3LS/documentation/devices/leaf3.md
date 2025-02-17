@@ -179,6 +179,7 @@ vlan internal order ascending range 1006 1199
 | ------- | ---- | ------------ |
 | 10 | DMZ | - |
 | 20 | Internal | - |
+| 30 | Staging | - |
 | 3009 | MLAG_iBGP_VRF_A | LEAF_PEER_L3 |
 | 4093 | LEAF_PEER_L3 | LEAF_PEER_L3 |
 | 4094 | MLAG_PEER | MLAG |
@@ -192,6 +193,9 @@ vlan 10
 !
 vlan 20
    name Internal
+!
+vlan 30
+   name Staging
 !
 vlan 3009
    name MLAG_iBGP_VRF_A
@@ -345,6 +349,7 @@ interface Loopback1
 | --------- | ----------- | --- | ---- | -------- |
 | Vlan10 | DMZ | VRF_A | - | False |
 | Vlan20 | Internal | VRF_A | - | False |
+| Vlan30 | Staging | VRF_A | - | False |
 | Vlan3009 | MLAG_PEER_L3_iBGP: vrf VRF_A | VRF_A | 1550 | False |
 | Vlan4093 | MLAG_PEER_L3_PEERING | default | 1550 | False |
 | Vlan4094 | MLAG_PEER | default | 1550 | False |
@@ -355,6 +360,7 @@ interface Loopback1
 | --------- | --- | ---------- | ------------------ | ------------------------- | ---- | ------ | ------- |
 | Vlan10 |  VRF_A  |  -  |  10.1.10.1/24  |  -  |  -  |  -  |  -  |
 | Vlan20 |  VRF_A  |  -  |  10.1.20.1/24  |  -  |  -  |  -  |  -  |
+| Vlan30 |  VRF_A  |  -  |  10.1.30.1/24  |  -  |  -  |  -  |  -  |
 | Vlan3009 |  VRF_A  |  10.255.251.4/31  |  -  |  -  |  -  |  -  |  -  |
 | Vlan4093 |  default  |  10.255.251.4/31  |  -  |  -  |  -  |  -  |  -  |
 | Vlan4094 |  default  |  10.255.252.4/31  |  -  |  -  |  -  |  -  |  -  |
@@ -374,6 +380,12 @@ interface Vlan20
    no shutdown
    vrf VRF_A
    ip address virtual 10.1.20.1/24
+!
+interface Vlan30
+   description Staging
+   no shutdown
+   vrf VRF_A
+   ip address virtual 10.1.30.1/24
 !
 interface Vlan3009
    description MLAG_PEER_L3_iBGP: vrf VRF_A
@@ -412,6 +424,7 @@ interface Vlan4094
 | ---- | --- | ---------- | --------------- |
 | 10 | 10010 | - | - |
 | 20 | 10020 | - | - |
+| 30 | 10030 | - | - |
 
 ##### VRF to VNI and Multicast Group Mappings
 
@@ -430,6 +443,7 @@ interface Vxlan1
    vxlan udp-port 4789
    vxlan vlan 10 vni 10010
    vxlan vlan 20 vni 10020
+   vxlan vlan 30 vni 10030
    vxlan vrf VRF_A vni 10
 ```
 
@@ -572,6 +586,7 @@ ip route vrf MGMT 0.0.0.0/0 192.168.50.1
 | ---- | ------------------- | ----------------- | ------------------- | ------------------- | ------------ |
 | 10 | 192.168.101.3:10010 | 10010:10010 | - | - | learned |
 | 20 | 192.168.101.3:10020 | 10020:10020 | - | - | learned |
+| 30 | 192.168.101.3:10030 | 10030:10030 | - | - | learned |
 
 #### Router BGP VRFs
 
@@ -633,6 +648,11 @@ router bgp 65299
    vlan 20
       rd 192.168.101.3:10020
       route-target both 10020:10020
+      redistribute learned
+   !
+   vlan 30
+      rd 192.168.101.3:10030
+      route-target both 10030:10030
       redistribute learned
    !
    address-family evpn
