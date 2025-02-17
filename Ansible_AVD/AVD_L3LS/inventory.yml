@@ -48,6 +48,8 @@ all:
             leaf2:
             leaf3:
             leaf4:
+            borderleaf1:
+            borderleaf2:
     EVPN_SERVICES:
       children:
         LEAFS:
