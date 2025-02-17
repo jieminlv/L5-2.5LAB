@@ -129,63 +129,63 @@
 | 72 | leaf4 | Interface State | Port-Channel Interface & Line Protocol == "up" | Port-Channel7 - host2_PortChannel host2 | FAIL | Interface shutdown: False - interface status: down - line protocol status: lowerLayerDown |
 | 73 | borderleaf1 | Interface State | Vlan Interface & Line Protocol == "up" | Vlan4093 - MLAG_PEER_L3_PEERING | PASS | - |
 | 74 | borderleaf1 | Interface State | Vlan Interface & Line Protocol == "up" | Vlan4094 - MLAG_PEER | PASS | - |
-| 75 | borderleaf1 | Interface State | Vlan Interface & Line Protocol == "up" | Vlan10 - DMZ | PASS | - |
-| 76 | borderleaf1 | Interface State | Vlan Interface & Line Protocol == "up" | Vlan20 - Internal | PASS | - |
-| 77 | borderleaf1 | Interface State | Vlan Interface & Line Protocol == "up" | Vlan30 - Staging | PASS | - |
+| 75 | borderleaf1 | Interface State | Vlan Interface & Line Protocol == "up" | Vlan10 - DMZ-1 | PASS | - |
+| 76 | borderleaf1 | Interface State | Vlan Interface & Line Protocol == "up" | Vlan20 - Internal-1 | PASS | - |
+| 77 | borderleaf1 | Interface State | Vlan Interface & Line Protocol == "up" | Vlan30 - Staging-1 | PASS | - |
 | 78 | borderleaf1 | Interface State | Vlan Interface & Line Protocol == "up" | Vlan3009 - MLAG_PEER_L3_iBGP: vrf VRF_A | PASS | - |
-| 79 | borderleaf1 | Interface State | Vlan Interface & Line Protocol == "up" | Vlan40 - DMZ-1 | PASS | - |
-| 80 | borderleaf1 | Interface State | Vlan Interface & Line Protocol == "up" | Vlan50 - Internal-1 | PASS | - |
-| 81 | borderleaf1 | Interface State | Vlan Interface & Line Protocol == "up" | Vlan60 - Staging-1 | PASS | - |
+| 79 | borderleaf1 | Interface State | Vlan Interface & Line Protocol == "up" | Vlan40 - DMZ-2 | PASS | - |
+| 80 | borderleaf1 | Interface State | Vlan Interface & Line Protocol == "up" | Vlan50 - Internal-2 | PASS | - |
+| 81 | borderleaf1 | Interface State | Vlan Interface & Line Protocol == "up" | Vlan60 - Staging-2 | PASS | - |
 | 82 | borderleaf1 | Interface State | Vlan Interface & Line Protocol == "up" | Vlan3019 - MLAG_PEER_L3_iBGP: vrf VRF_B | PASS | - |
 | 83 | borderleaf2 | Interface State | Vlan Interface & Line Protocol == "up" | Vlan4093 - MLAG_PEER_L3_PEERING | PASS | - |
 | 84 | borderleaf2 | Interface State | Vlan Interface & Line Protocol == "up" | Vlan4094 - MLAG_PEER | PASS | - |
-| 85 | borderleaf2 | Interface State | Vlan Interface & Line Protocol == "up" | Vlan10 - DMZ | PASS | - |
-| 86 | borderleaf2 | Interface State | Vlan Interface & Line Protocol == "up" | Vlan20 - Internal | PASS | - |
-| 87 | borderleaf2 | Interface State | Vlan Interface & Line Protocol == "up" | Vlan30 - Staging | PASS | - |
+| 85 | borderleaf2 | Interface State | Vlan Interface & Line Protocol == "up" | Vlan10 - DMZ-1 | PASS | - |
+| 86 | borderleaf2 | Interface State | Vlan Interface & Line Protocol == "up" | Vlan20 - Internal-1 | PASS | - |
+| 87 | borderleaf2 | Interface State | Vlan Interface & Line Protocol == "up" | Vlan30 - Staging-1 | PASS | - |
 | 88 | borderleaf2 | Interface State | Vlan Interface & Line Protocol == "up" | Vlan3009 - MLAG_PEER_L3_iBGP: vrf VRF_A | PASS | - |
-| 89 | borderleaf2 | Interface State | Vlan Interface & Line Protocol == "up" | Vlan40 - DMZ-1 | PASS | - |
-| 90 | borderleaf2 | Interface State | Vlan Interface & Line Protocol == "up" | Vlan50 - Internal-1 | PASS | - |
-| 91 | borderleaf2 | Interface State | Vlan Interface & Line Protocol == "up" | Vlan60 - Staging-1 | PASS | - |
+| 89 | borderleaf2 | Interface State | Vlan Interface & Line Protocol == "up" | Vlan40 - DMZ-2 | PASS | - |
+| 90 | borderleaf2 | Interface State | Vlan Interface & Line Protocol == "up" | Vlan50 - Internal-2 | PASS | - |
+| 91 | borderleaf2 | Interface State | Vlan Interface & Line Protocol == "up" | Vlan60 - Staging-2 | PASS | - |
 | 92 | borderleaf2 | Interface State | Vlan Interface & Line Protocol == "up" | Vlan3019 - MLAG_PEER_L3_iBGP: vrf VRF_B | PASS | - |
 | 93 | leaf1 | Interface State | Vlan Interface & Line Protocol == "up" | Vlan4093 - MLAG_PEER_L3_PEERING | PASS | - |
 | 94 | leaf1 | Interface State | Vlan Interface & Line Protocol == "up" | Vlan4094 - MLAG_PEER | PASS | - |
-| 95 | leaf1 | Interface State | Vlan Interface & Line Protocol == "up" | Vlan10 - DMZ | PASS | - |
-| 96 | leaf1 | Interface State | Vlan Interface & Line Protocol == "up" | Vlan20 - Internal | PASS | - |
-| 97 | leaf1 | Interface State | Vlan Interface & Line Protocol == "up" | Vlan30 - Staging | PASS | - |
+| 95 | leaf1 | Interface State | Vlan Interface & Line Protocol == "up" | Vlan10 - DMZ-1 | PASS | - |
+| 96 | leaf1 | Interface State | Vlan Interface & Line Protocol == "up" | Vlan20 - Internal-1 | PASS | - |
+| 97 | leaf1 | Interface State | Vlan Interface & Line Protocol == "up" | Vlan30 - Staging-1 | PASS | - |
 | 98 | leaf1 | Interface State | Vlan Interface & Line Protocol == "up" | Vlan3009 - MLAG_PEER_L3_iBGP: vrf VRF_A | PASS | - |
-| 99 | leaf1 | Interface State | Vlan Interface & Line Protocol == "up" | Vlan40 - DMZ-1 | PASS | - |
-| 100 | leaf1 | Interface State | Vlan Interface & Line Protocol == "up" | Vlan50 - Internal-1 | PASS | - |
-| 101 | leaf1 | Interface State | Vlan Interface & Line Protocol == "up" | Vlan60 - Staging-1 | PASS | - |
+| 99 | leaf1 | Interface State | Vlan Interface & Line Protocol == "up" | Vlan40 - DMZ-2 | PASS | - |
+| 100 | leaf1 | Interface State | Vlan Interface & Line Protocol == "up" | Vlan50 - Internal-2 | PASS | - |
+| 101 | leaf1 | Interface State | Vlan Interface & Line Protocol == "up" | Vlan60 - Staging-2 | PASS | - |
 | 102 | leaf1 | Interface State | Vlan Interface & Line Protocol == "up" | Vlan3019 - MLAG_PEER_L3_iBGP: vrf VRF_B | PASS | - |
 | 103 | leaf2 | Interface State | Vlan Interface & Line Protocol == "up" | Vlan4093 - MLAG_PEER_L3_PEERING | PASS | - |
 | 104 | leaf2 | Interface State | Vlan Interface & Line Protocol == "up" | Vlan4094 - MLAG_PEER | PASS | - |
-| 105 | leaf2 | Interface State | Vlan Interface & Line Protocol == "up" | Vlan10 - DMZ | PASS | - |
-| 106 | leaf2 | Interface State | Vlan Interface & Line Protocol == "up" | Vlan20 - Internal | PASS | - |
-| 107 | leaf2 | Interface State | Vlan Interface & Line Protocol == "up" | Vlan30 - Staging | PASS | - |
+| 105 | leaf2 | Interface State | Vlan Interface & Line Protocol == "up" | Vlan10 - DMZ-1 | PASS | - |
+| 106 | leaf2 | Interface State | Vlan Interface & Line Protocol == "up" | Vlan20 - Internal-1 | PASS | - |
+| 107 | leaf2 | Interface State | Vlan Interface & Line Protocol == "up" | Vlan30 - Staging-1 | PASS | - |
 | 108 | leaf2 | Interface State | Vlan Interface & Line Protocol == "up" | Vlan3009 - MLAG_PEER_L3_iBGP: vrf VRF_A | PASS | - |
-| 109 | leaf2 | Interface State | Vlan Interface & Line Protocol == "up" | Vlan40 - DMZ-1 | PASS | - |
-| 110 | leaf2 | Interface State | Vlan Interface & Line Protocol == "up" | Vlan50 - Internal-1 | PASS | - |
-| 111 | leaf2 | Interface State | Vlan Interface & Line Protocol == "up" | Vlan60 - Staging-1 | PASS | - |
+| 109 | leaf2 | Interface State | Vlan Interface & Line Protocol == "up" | Vlan40 - DMZ-2 | PASS | - |
+| 110 | leaf2 | Interface State | Vlan Interface & Line Protocol == "up" | Vlan50 - Internal-2 | PASS | - |
+| 111 | leaf2 | Interface State | Vlan Interface & Line Protocol == "up" | Vlan60 - Staging-2 | PASS | - |
 | 112 | leaf2 | Interface State | Vlan Interface & Line Protocol == "up" | Vlan3019 - MLAG_PEER_L3_iBGP: vrf VRF_B | PASS | - |
 | 113 | leaf3 | Interface State | Vlan Interface & Line Protocol == "up" | Vlan4093 - MLAG_PEER_L3_PEERING | PASS | - |
 | 114 | leaf3 | Interface State | Vlan Interface & Line Protocol == "up" | Vlan4094 - MLAG_PEER | PASS | - |
-| 115 | leaf3 | Interface State | Vlan Interface & Line Protocol == "up" | Vlan10 - DMZ | PASS | - |
-| 116 | leaf3 | Interface State | Vlan Interface & Line Protocol == "up" | Vlan20 - Internal | PASS | - |
-| 117 | leaf3 | Interface State | Vlan Interface & Line Protocol == "up" | Vlan30 - Staging | PASS | - |
+| 115 | leaf3 | Interface State | Vlan Interface & Line Protocol == "up" | Vlan10 - DMZ-1 | PASS | - |
+| 116 | leaf3 | Interface State | Vlan Interface & Line Protocol == "up" | Vlan20 - Internal-1 | PASS | - |
+| 117 | leaf3 | Interface State | Vlan Interface & Line Protocol == "up" | Vlan30 - Staging-1 | PASS | - |
 | 118 | leaf3 | Interface State | Vlan Interface & Line Protocol == "up" | Vlan3009 - MLAG_PEER_L3_iBGP: vrf VRF_A | PASS | - |
-| 119 | leaf3 | Interface State | Vlan Interface & Line Protocol == "up" | Vlan40 - DMZ-1 | PASS | - |
-| 120 | leaf3 | Interface State | Vlan Interface & Line Protocol == "up" | Vlan50 - Internal-1 | PASS | - |
-| 121 | leaf3 | Interface State | Vlan Interface & Line Protocol == "up" | Vlan60 - Staging-1 | PASS | - |
+| 119 | leaf3 | Interface State | Vlan Interface & Line Protocol == "up" | Vlan40 - DMZ-2 | PASS | - |
+| 120 | leaf3 | Interface State | Vlan Interface & Line Protocol == "up" | Vlan50 - Internal-2 | PASS | - |
+| 121 | leaf3 | Interface State | Vlan Interface & Line Protocol == "up" | Vlan60 - Staging-2 | PASS | - |
 | 122 | leaf3 | Interface State | Vlan Interface & Line Protocol == "up" | Vlan3019 - MLAG_PEER_L3_iBGP: vrf VRF_B | PASS | - |
 | 123 | leaf4 | Interface State | Vlan Interface & Line Protocol == "up" | Vlan4093 - MLAG_PEER_L3_PEERING | PASS | - |
 | 124 | leaf4 | Interface State | Vlan Interface & Line Protocol == "up" | Vlan4094 - MLAG_PEER | PASS | - |
-| 125 | leaf4 | Interface State | Vlan Interface & Line Protocol == "up" | Vlan10 - DMZ | PASS | - |
-| 126 | leaf4 | Interface State | Vlan Interface & Line Protocol == "up" | Vlan20 - Internal | PASS | - |
-| 127 | leaf4 | Interface State | Vlan Interface & Line Protocol == "up" | Vlan30 - Staging | PASS | - |
+| 125 | leaf4 | Interface State | Vlan Interface & Line Protocol == "up" | Vlan10 - DMZ-1 | PASS | - |
+| 126 | leaf4 | Interface State | Vlan Interface & Line Protocol == "up" | Vlan20 - Internal-1 | PASS | - |
+| 127 | leaf4 | Interface State | Vlan Interface & Line Protocol == "up" | Vlan30 - Staging-1 | PASS | - |
 | 128 | leaf4 | Interface State | Vlan Interface & Line Protocol == "up" | Vlan3009 - MLAG_PEER_L3_iBGP: vrf VRF_A | PASS | - |
-| 129 | leaf4 | Interface State | Vlan Interface & Line Protocol == "up" | Vlan40 - DMZ-1 | PASS | - |
-| 130 | leaf4 | Interface State | Vlan Interface & Line Protocol == "up" | Vlan50 - Internal-1 | PASS | - |
-| 131 | leaf4 | Interface State | Vlan Interface & Line Protocol == "up" | Vlan60 - Staging-1 | PASS | - |
+| 129 | leaf4 | Interface State | Vlan Interface & Line Protocol == "up" | Vlan40 - DMZ-2 | PASS | - |
+| 130 | leaf4 | Interface State | Vlan Interface & Line Protocol == "up" | Vlan50 - Internal-2 | PASS | - |
+| 131 | leaf4 | Interface State | Vlan Interface & Line Protocol == "up" | Vlan60 - Staging-2 | PASS | - |
 | 132 | leaf4 | Interface State | Vlan Interface & Line Protocol == "up" | Vlan3019 - MLAG_PEER_L3_iBGP: vrf VRF_B | PASS | - |
 | 133 | borderleaf1 | Interface State | Vxlan Interface Status & Line Protocol == "up" | Vxlan1 | PASS | - |
 | 134 | borderleaf2 | Interface State | Vxlan Interface Status & Line Protocol == "up" | Vxlan1 | PASS | - |

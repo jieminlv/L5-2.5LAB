@@ -211,13 +211,13 @@ vlans:
   trunk_groups:
   - MLAG
 - id: 10
-  name: DMZ
+  name: DMZ-1
   tenant: ACME
 - id: 20
-  name: Internal
+  name: Internal-1
   tenant: ACME
 - id: 30
-  name: Staging
+  name: Staging-1
   tenant: ACME
 - id: 3009
   name: MLAG_iBGP_VRF_A
@@ -225,13 +225,13 @@ vlans:
   - LEAF_PEER_L3
   tenant: ACME
 - id: 40
-  name: DMZ-1
+  name: DMZ-2
   tenant: ACME
 - id: 50
-  name: Internal-1
+  name: Internal-2
   tenant: ACME
 - id: 60
-  name: Staging-1
+  name: Staging-2
   tenant: ACME
 - id: 3019
   name: MLAG_iBGP_VRF_B
@@ -252,19 +252,19 @@ vlan_interfaces:
   mtu: 1550
 - name: Vlan10
   tenant: ACME
-  description: DMZ
+  description: DMZ-1
   shutdown: false
   ip_address_virtual: 10.1.10.1/24
   vrf: VRF_A
 - name: Vlan20
   tenant: ACME
-  description: Internal
+  description: Internal-1
   shutdown: false
   ip_address_virtual: 10.1.20.1/24
   vrf: VRF_A
 - name: Vlan30
   tenant: ACME
-  description: Staging
+  description: Staging-1
   shutdown: false
   ip_address_virtual: 10.1.30.1/24
   vrf: VRF_A
@@ -278,21 +278,21 @@ vlan_interfaces:
   ip_address: 10.255.251.5/31
 - name: Vlan40
   tenant: ACME
-  description: DMZ-1
+  description: DMZ-2
   shutdown: false
-  ip_address_virtual: 10.1.10.1/24
+  ip_address_virtual: 10.2.10.1/24
   vrf: VRF_B
 - name: Vlan50
   tenant: ACME
-  description: Internal-1
+  description: Internal-2
   shutdown: false
-  ip_address_virtual: 10.1.20.1/24
+  ip_address_virtual: 10.2.20.1/24
   vrf: VRF_B
 - name: Vlan60
   tenant: ACME
-  description: Staging-1
+  description: Staging-2
   shutdown: false
-  ip_address_virtual: 10.1.30.1/24
+  ip_address_virtual: 10.2.30.1/24
   vrf: VRF_B
 - name: Vlan3019
   tenant: ACME

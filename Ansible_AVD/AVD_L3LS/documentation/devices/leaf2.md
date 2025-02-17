@@ -177,12 +177,12 @@ vlan internal order ascending range 1006 1199
 
 | VLAN ID | Name | Trunk Groups |
 | ------- | ---- | ------------ |
-| 10 | DMZ | - |
-| 20 | Internal | - |
-| 30 | Staging | - |
-| 40 | DMZ-1 | - |
-| 50 | Internal-1 | - |
-| 60 | Staging-1 | - |
+| 10 | DMZ-1 | - |
+| 20 | Internal-1 | - |
+| 30 | Staging-1 | - |
+| 40 | DMZ-2 | - |
+| 50 | Internal-2 | - |
+| 60 | Staging-2 | - |
 | 3009 | MLAG_iBGP_VRF_A | LEAF_PEER_L3 |
 | 3019 | MLAG_iBGP_VRF_B | LEAF_PEER_L3 |
 | 4093 | LEAF_PEER_L3 | LEAF_PEER_L3 |
@@ -193,22 +193,22 @@ vlan internal order ascending range 1006 1199
 ```eos
 !
 vlan 10
-   name DMZ
-!
-vlan 20
-   name Internal
-!
-vlan 30
-   name Staging
-!
-vlan 40
    name DMZ-1
 !
-vlan 50
+vlan 20
    name Internal-1
 !
-vlan 60
+vlan 30
    name Staging-1
+!
+vlan 40
+   name DMZ-2
+!
+vlan 50
+   name Internal-2
+!
+vlan 60
+   name Staging-2
 !
 vlan 3009
    name MLAG_iBGP_VRF_A
@@ -364,12 +364,12 @@ interface Loopback1
 
 | Interface | Description | VRF |  MTU | Shutdown |
 | --------- | ----------- | --- | ---- | -------- |
-| Vlan10 | DMZ | VRF_A | - | False |
-| Vlan20 | Internal | VRF_A | - | False |
-| Vlan30 | Staging | VRF_A | - | False |
-| Vlan40 | DMZ-1 | VRF_B | - | False |
-| Vlan50 | Internal-1 | VRF_B | - | False |
-| Vlan60 | Staging-1 | VRF_B | - | False |
+| Vlan10 | DMZ-1 | VRF_A | - | False |
+| Vlan20 | Internal-1 | VRF_A | - | False |
+| Vlan30 | Staging-1 | VRF_A | - | False |
+| Vlan40 | DMZ-2 | VRF_B | - | False |
+| Vlan50 | Internal-2 | VRF_B | - | False |
+| Vlan60 | Staging-2 | VRF_B | - | False |
 | Vlan3009 | MLAG_PEER_L3_iBGP: vrf VRF_A | VRF_A | 1550 | False |
 | Vlan3019 | MLAG_PEER_L3_iBGP: vrf VRF_B | VRF_B | 1550 | False |
 | Vlan4093 | MLAG_PEER_L3_PEERING | default | 1550 | False |
@@ -382,9 +382,9 @@ interface Loopback1
 | Vlan10 |  VRF_A  |  -  |  10.1.10.1/24  |  -  |  -  |  -  |  -  |
 | Vlan20 |  VRF_A  |  -  |  10.1.20.1/24  |  -  |  -  |  -  |  -  |
 | Vlan30 |  VRF_A  |  -  |  10.1.30.1/24  |  -  |  -  |  -  |  -  |
-| Vlan40 |  VRF_B  |  -  |  10.1.10.1/24  |  -  |  -  |  -  |  -  |
-| Vlan50 |  VRF_B  |  -  |  10.1.20.1/24  |  -  |  -  |  -  |  -  |
-| Vlan60 |  VRF_B  |  -  |  10.1.30.1/24  |  -  |  -  |  -  |  -  |
+| Vlan40 |  VRF_B  |  -  |  10.2.10.1/24  |  -  |  -  |  -  |  -  |
+| Vlan50 |  VRF_B  |  -  |  10.2.20.1/24  |  -  |  -  |  -  |  -  |
+| Vlan60 |  VRF_B  |  -  |  10.2.30.1/24  |  -  |  -  |  -  |  -  |
 | Vlan3009 |  VRF_A  |  10.255.251.1/31  |  -  |  -  |  -  |  -  |  -  |
 | Vlan3019 |  VRF_B  |  10.255.251.1/31  |  -  |  -  |  -  |  -  |  -  |
 | Vlan4093 |  default  |  10.255.251.1/31  |  -  |  -  |  -  |  -  |  -  |
@@ -395,40 +395,40 @@ interface Loopback1
 ```eos
 !
 interface Vlan10
-   description DMZ
+   description DMZ-1
    no shutdown
    vrf VRF_A
    ip address virtual 10.1.10.1/24
 !
 interface Vlan20
-   description Internal
+   description Internal-1
    no shutdown
    vrf VRF_A
    ip address virtual 10.1.20.1/24
 !
 interface Vlan30
-   description Staging
+   description Staging-1
    no shutdown
    vrf VRF_A
    ip address virtual 10.1.30.1/24
 !
 interface Vlan40
-   description DMZ-1
+   description DMZ-2
    no shutdown
    vrf VRF_B
-   ip address virtual 10.1.10.1/24
+   ip address virtual 10.2.10.1/24
 !
 interface Vlan50
-   description Internal-1
+   description Internal-2
    no shutdown
    vrf VRF_B
-   ip address virtual 10.1.20.1/24
+   ip address virtual 10.2.20.1/24
 !
 interface Vlan60
-   description Staging-1
+   description Staging-2
    no shutdown
    vrf VRF_B
-   ip address virtual 10.1.30.1/24
+   ip address virtual 10.2.30.1/24
 !
 interface Vlan3009
    description MLAG_PEER_L3_iBGP: vrf VRF_A
