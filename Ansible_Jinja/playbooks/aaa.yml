@@ -1,0 +1,20 @@
+- name: Find where 'devices' is defined
+  hosts: all
+  gather_facts: no
+
+  tasks:
+    - name: Debug 'devices' variable
+      debug:
+        var: devices
+
+    # - name: Debug host-specific 'devices' entry
+    #   debug:
+    #     msg: "{{ hostvars[inventory_hostname]['devices'] | default('devices not found') }}"
+
+    # - name: Show all variables for the current host
+    #   debug:
+    #     var: hostvars[inventory_hostname]
+
+    # - name: Show inventory_hostname for reference
+    #   debug:
+    #     var: inventory_hostname
