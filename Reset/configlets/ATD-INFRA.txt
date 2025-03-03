@@ -1,0 +1,50 @@
+vrf instance MGMT
+!
+daemon TerminAttr
+   exec /usr/bin/TerminAttr -ingestgrpcurl=192.168.50.228:9910 -cvcompression=gzip -ingestauth=key,arista -smashexcludes=ale,flexCounter,hardware,kni,pulse,strata -ingestexclude=/Sysdb/cell/1/agent,/Sysdb/cell/2/agent -ingestvrf=MGMT -taillogs
+   no shutdown
+!
+alias mlag-reload bash /mnt/flash/shut_intfs && sudo shutdown now -r
+alias conint sh interface | i connected
+alias senz show interface counter error | nz
+alias shmc show int | awk '/^[A-Z]/ { intf = $1 } /, address is/ { print intf, $6 }'
+alias snz show interface counter | nz
+alias spd show port-channel %1 detail all
+alias sqnz show interface counter queue | nz
+alias srnz show interface counter rate | nz
+alias intdesc
+   !! Usage: intdesc interface-name description
+   10 config
+   20 int %1
+   30 desc %2
+   40 exit
+!
+dns domain atd.lab
+!
+service routing protocols model multi-agent
+!
+!
+
+!
+aaa authorization exec default local 
+aaa authorization commands all default local 
+!
+username Script secret sha512 $6$PNfpb9anSBQ5/aia$phaa3ar5pwkntenD9WHc6Ed5b96lbW0dc0bjtwPnFLaDiCK8D5Cjl6ewP/xdNbl4PtS6Paq.3SssN8pj05NQm.
+username admin privilege 15 role network-admin secret 5 $1$5O85YVVn$HrXcfOivJEnISTMb6xrJc.
+username arista privilege 15 role network-admin secret 5 $1$4VjIjfd1$XkUVulbNDESHFzcxDU.Tk1
+!
+username arista ssh-key ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCwnmvoUyz4NTVxDfCM3CvwkFDMBQLbU5F2wFFIresNZHi/3eWXGm2+3SKnC83S+Gkg00MuxpPB0fBKJlmtmFBlNTvpE3lndNzsSA8Pu+weLmh1vtXF5G2ftXAVXN4b4jTKCdTB/Fw3e3ecAUArvV68ocVp1tD2e8utEiCNM8rwl8nzx/cMjibwSV++uh/NkpaBoKyfnKVE84S39Q45TJHKZ3Ks3LxAbEKWUpzZIYuOgjMK+GCdSaqUgtvagCO4Uichad6Dp4YHZGwwMNhb+qGBb2xjLZuBIB2NYV9IZZeFN02+tvqEJieOEqwehqvDMH9lnZRaokm96DR41RDNBj4z jiemin@ubuntu
+username cvpadmin privilege 15 role network-admin secret sha512 $6$lCepKdo2/btuQRlB$dqvt69u9Eke5upW.nxB9WTLyVbgfwfXE56Y2lCJFt2KQDO14Al.HTiwzALnfnZd5Vknz63q21TyQqQqYRgDWo/
+!
+!
+ip routing vrf MGMT
+!
+ntp server vrf MGMT 196.4.160.4 iburst source Management1
+!
+ip route vrf MGMT 0.0.0.0/0 192.168.50.1
+!
+management api http-commands
+   no shutdown
+   vrf MGMT
+     no shutdown
+!

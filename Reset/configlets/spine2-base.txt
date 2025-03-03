@@ -1,0 +1,12 @@
+hostname spine2
+!
+interface Management 1
+  vrf MGMT
+  ip address 192.168.50.249/24
+
+service routing protocols model multi-agent
+!
+!
+ip routing vrf MGMT
+!
+ip route vrf MGMT 0.0.0.0/0 192.168.50.1
