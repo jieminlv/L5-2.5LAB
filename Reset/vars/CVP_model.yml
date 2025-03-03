@@ -9,7 +9,6 @@ CVP_CONFIGLETS:
   leaf4-base: "{{ lookup('file','{{path}}/configlets/leaf4-base.txt') }}"
   borderleaf1-base: "{{ lookup('file','{{path}}/configlets/borderleaf1-base.txt') }}"
   borderleaf2-base: "{{ lookup('file','{{path}}/configlets/borderleaf2-base.txt') }}"
-  borderleaf3-base: "{{ lookup('file','{{path}}/configlets/borderleaf3-base.txt') }}"
   spine1-base: "{{ lookup('file','{{path}}/configlets/spine1-base.txt') }}"
   spine2-base: "{{ lookup('file','{{path}}/configlets/spine2-base.txt') }}"
   spine3-base: "{{ lookup('file','{{path}}/configlets/spine3-base.txt') }}"
