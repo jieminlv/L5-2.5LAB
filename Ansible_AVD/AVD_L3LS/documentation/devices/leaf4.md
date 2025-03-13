@@ -239,7 +239,7 @@ vlan 4094
 | --------- | ----------- | ---- | ----- | ----------- | ----------- | ------------- |
 | Ethernet1 | MLAG_PEER_leaf3_Ethernet1 | *trunk | *- | *- | *['LEAF_PEER_L3', 'MLAG'] | 1 |
 | Ethernet2 | MLAG_PEER_leaf3_Ethernet2 | *trunk | *- | *- | *['LEAF_PEER_L3', 'MLAG'] | 1 |
-| Ethernet7 | host2_Ethernet2 | *trunk | *40,50,60 | *- | *- | 7 |
+| Ethernet7 | host2_Ethernet2 | *trunk | *10,20,30,40,50,60 | *- | *- | 7 |
 
 *Inherited from Port-Channel Interface
 
@@ -308,7 +308,7 @@ interface Ethernet9
 | Interface | Description | Type | Mode | VLANs | Native VLAN | Trunk Group | LACP Fallback Timeout | LACP Fallback Mode | MLAG ID | EVPN ESI |
 | --------- | ----------- | ---- | ---- | ----- | ----------- | ------------| --------------------- | ------------------ | ------- | -------- |
 | Port-Channel1 | MLAG_PEER_leaf3_Po1 | switched | trunk | - | - | ['LEAF_PEER_L3', 'MLAG'] | - | - | - | - |
-| Port-Channel7 | host2_PortChannel host2 | switched | trunk | 40,50,60 | - | - | - | - | 7 | - |
+| Port-Channel7 | host2_PortChannel host2 | switched | trunk | 10,20,30,40,50,60 | - | - | - | - | 7 | - |
 
 #### Port-Channel Interfaces Device Configuration
 
@@ -326,7 +326,7 @@ interface Port-Channel7
    description host2_PortChannel host2
    no shutdown
    switchport
-   switchport trunk allowed vlan 40,50,60
+   switchport trunk allowed vlan 10,20,30,40,50,60
    switchport mode trunk
    mlag 7
    spanning-tree portfast network

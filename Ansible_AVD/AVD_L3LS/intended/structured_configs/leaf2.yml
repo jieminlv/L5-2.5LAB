@@ -310,7 +310,7 @@ port_channel_interfaces:
   type: switched
   shutdown: false
   mode: trunk
-  vlans: 10,20,30
+  vlans: 10,20,30,40,50,60
   spanning_tree_portfast: network
   mlag: 7
 ethernet_interfaces:

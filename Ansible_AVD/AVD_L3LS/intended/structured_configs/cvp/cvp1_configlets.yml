@@ -202,7 +202,7 @@ cvp_configlets:
     Port-Channel1\n   description MLAG_PEER_leaf2_Po1\n   no shutdown\n   switchport\n
     \  switchport mode trunk\n   switchport trunk group LEAF_PEER_L3\n   switchport
     trunk group MLAG\n!\ninterface Port-Channel7\n   description host1_PortChannel
-    host1\n   no shutdown\n   switchport\n   switchport trunk allowed vlan 10,20,30\n
+    host1\n   no shutdown\n   switchport\n   switchport trunk allowed vlan 10,20,30,40,50,60\n
     \  switchport mode trunk\n   mlag 7\n   spanning-tree portfast network\n!\ninterface
     Ethernet1\n   description MLAG_PEER_leaf2_Ethernet1\n   no shutdown\n   channel-group
     1 mode active\n!\ninterface Ethernet2\n   description MLAG_PEER_leaf2_Ethernet2\n
@@ -301,7 +301,7 @@ cvp_configlets:
     Port-Channel1\n   description MLAG_PEER_leaf1_Po1\n   no shutdown\n   switchport\n
     \  switchport mode trunk\n   switchport trunk group LEAF_PEER_L3\n   switchport
     trunk group MLAG\n!\ninterface Port-Channel7\n   description host1_PortChannel
-    host1\n   no shutdown\n   switchport\n   switchport trunk allowed vlan 10,20,30\n
+    host1\n   no shutdown\n   switchport\n   switchport trunk allowed vlan 10,20,30,40,50,60\n
     \  switchport mode trunk\n   mlag 7\n   spanning-tree portfast network\n!\ninterface
     Ethernet1\n   description MLAG_PEER_leaf1_Ethernet1\n   no shutdown\n   channel-group
     1 mode active\n!\ninterface Ethernet2\n   description MLAG_PEER_leaf1_Ethernet2\n
@@ -400,7 +400,7 @@ cvp_configlets:
     Port-Channel1\n   description MLAG_PEER_leaf4_Po1\n   no shutdown\n   switchport\n
     \  switchport mode trunk\n   switchport trunk group LEAF_PEER_L3\n   switchport
     trunk group MLAG\n!\ninterface Port-Channel7\n   description host2_PortChannel
-    host2\n   no shutdown\n   switchport\n   switchport trunk allowed vlan 40,50,60\n
+    host2\n   no shutdown\n   switchport\n   switchport trunk allowed vlan 10,20,30,40,50,60\n
     \  switchport mode trunk\n   mlag 7\n   spanning-tree portfast network\n!\ninterface
     Ethernet1\n   description MLAG_PEER_leaf4_Ethernet1\n   no shutdown\n   channel-group
     1 mode active\n!\ninterface Ethernet2\n   description MLAG_PEER_leaf4_Ethernet2\n
@@ -499,7 +499,7 @@ cvp_configlets:
     Port-Channel1\n   description MLAG_PEER_leaf3_Po1\n   no shutdown\n   switchport\n
     \  switchport mode trunk\n   switchport trunk group LEAF_PEER_L3\n   switchport
     trunk group MLAG\n!\ninterface Port-Channel7\n   description host2_PortChannel
-    host2\n   no shutdown\n   switchport\n   switchport trunk allowed vlan 40,50,60\n
+    host2\n   no shutdown\n   switchport\n   switchport trunk allowed vlan 10,20,30,40,50,60\n
     \  switchport mode trunk\n   mlag 7\n   spanning-tree portfast network\n!\ninterface
     Ethernet1\n   description MLAG_PEER_leaf3_Ethernet1\n   no shutdown\n   channel-group
     1 mode active\n!\ninterface Ethernet2\n   description MLAG_PEER_leaf3_Ethernet2\n
