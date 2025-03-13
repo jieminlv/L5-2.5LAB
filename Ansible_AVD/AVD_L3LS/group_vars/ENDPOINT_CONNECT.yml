@@ -5,7 +5,7 @@ servers:
       - endpoint_ports: [ Ethernet1, Ethernet2 ]
         switch_ports: [ Ethernet7, Ethernet7 ]
         switches: [ leaf1, leaf2 ]
-        vlans: 10,20,30
+        vlans: 10,20,30,40,50,60
         mode: trunk
         spanning_tree_portfast: network
         port_channel:
@@ -16,7 +16,7 @@ servers:
       - endpoint_ports: [ Ethernet1, Ethernet2 ]
         switch_ports: [ Ethernet7, Ethernet7 ]
         switches: [ leaf3, leaf4 ]
-        vlans: 40,50,60
+        vlans: 10,20,30,40,50,60
         mode: trunk
         spanning_tree_portfast: network
         port_channel:

@@ -13,7 +13,7 @@
 
 | Total Tests | Total Tests Passed | Total Tests Failed |
 | ----------- | ------------------ | ------------------ |
-| 456 | 452 | 4 |
+| 456 | 456 | 0 |
 
 ### Summary Totals Devices Under Tests
 
@@ -21,10 +21,10 @@
 | --- | ----------- | ------------ | ------------ | ----------------- |
 | borderleaf1 |  58 | 58 | 0 | - |
 | borderleaf2 |  58 | 58 | 0 | - |
-| leaf1 |  60 | 59 | 1 | Interface State |
-| leaf2 |  60 | 59 | 1 | Interface State |
-| leaf3 |  60 | 59 | 1 | Interface State |
-| leaf4 |  61 | 60 | 1 | Interface State |
+| leaf1 |  60 | 60 | 0 | - |
+| leaf2 |  60 | 60 | 0 | - |
+| leaf3 |  60 | 60 | 0 | - |
+| leaf4 |  61 | 61 | 0 | - |
 | spine1 |  33 | 33 | 0 | - |
 | spine2 |  33 | 33 | 0 | - |
 | spine3 |  33 | 33 | 0 | - |
@@ -34,7 +34,7 @@
 | Test Category | Total Tests | Tests Passed | Tests Failed |
 | ------------- | ----------- | ------------ | ------------ |
 | NTP |  9 | 9 | 0 |
-| Interface State |  144 | 140 | 4 |
+| Interface State |  144 | 144 | 0 |
 | LLDP Topology |  48 | 48 | 0 |
 | MLAG |  6 | 6 | 0 |
 | IP Reachability |  36 | 36 | 0 |
@@ -46,10 +46,6 @@
 
 | Test ID | Node | Test Category | Test Description | Test | Test Result | Failure Reason |
 | ------- | ---- | ------------- | ---------------- | ---- | ----------- | -------------- |
-| 66 | leaf1 | Interface State | Port-Channel Interface & Line Protocol == "up" | Port-Channel7 - host1_PortChannel host1 | FAIL | Interface shutdown: False - interface status: down - line protocol status: lowerLayerDown |
-| 68 | leaf2 | Interface State | Port-Channel Interface & Line Protocol == "up" | Port-Channel7 - host1_PortChannel host1 | FAIL | Interface shutdown: False - interface status: down - line protocol status: lowerLayerDown |
-| 70 | leaf3 | Interface State | Port-Channel Interface & Line Protocol == "up" | Port-Channel7 - host2_PortChannel host2 | FAIL | Interface shutdown: False - interface status: down - line protocol status: lowerLayerDown |
-| 72 | leaf4 | Interface State | Port-Channel Interface & Line Protocol == "up" | Port-Channel7 - host2_PortChannel host2 | FAIL | Interface shutdown: False - interface status: down - line protocol status: lowerLayerDown |
 
 ## All Test Results
 
@@ -120,13 +116,13 @@
 | 63 | borderleaf1 | Interface State | Port-Channel Interface & Line Protocol == "up" | Port-Channel1 - MLAG_PEER_borderleaf2_Po1 | PASS | - |
 | 64 | borderleaf2 | Interface State | Port-Channel Interface & Line Protocol == "up" | Port-Channel1 - MLAG_PEER_borderleaf1_Po1 | PASS | - |
 | 65 | leaf1 | Interface State | Port-Channel Interface & Line Protocol == "up" | Port-Channel1 - MLAG_PEER_leaf2_Po1 | PASS | - |
-| 66 | leaf1 | Interface State | Port-Channel Interface & Line Protocol == "up" | Port-Channel7 - host1_PortChannel host1 | FAIL | Interface shutdown: False - interface status: down - line protocol status: lowerLayerDown |
+| 66 | leaf1 | Interface State | Port-Channel Interface & Line Protocol == "up" | Port-Channel7 - host1_PortChannel host1 | PASS | - |
 | 67 | leaf2 | Interface State | Port-Channel Interface & Line Protocol == "up" | Port-Channel1 - MLAG_PEER_leaf1_Po1 | PASS | - |
-| 68 | leaf2 | Interface State | Port-Channel Interface & Line Protocol == "up" | Port-Channel7 - host1_PortChannel host1 | FAIL | Interface shutdown: False - interface status: down - line protocol status: lowerLayerDown |
+| 68 | leaf2 | Interface State | Port-Channel Interface & Line Protocol == "up" | Port-Channel7 - host1_PortChannel host1 | PASS | - |
 | 69 | leaf3 | Interface State | Port-Channel Interface & Line Protocol == "up" | Port-Channel1 - MLAG_PEER_leaf4_Po1 | PASS | - |
-| 70 | leaf3 | Interface State | Port-Channel Interface & Line Protocol == "up" | Port-Channel7 - host2_PortChannel host2 | FAIL | Interface shutdown: False - interface status: down - line protocol status: lowerLayerDown |
+| 70 | leaf3 | Interface State | Port-Channel Interface & Line Protocol == "up" | Port-Channel7 - host2_PortChannel host2 | PASS | - |
 | 71 | leaf4 | Interface State | Port-Channel Interface & Line Protocol == "up" | Port-Channel1 - MLAG_PEER_leaf3_Po1 | PASS | - |
-| 72 | leaf4 | Interface State | Port-Channel Interface & Line Protocol == "up" | Port-Channel7 - host2_PortChannel host2 | FAIL | Interface shutdown: False - interface status: down - line protocol status: lowerLayerDown |
+| 72 | leaf4 | Interface State | Port-Channel Interface & Line Protocol == "up" | Port-Channel7 - host2_PortChannel host2 | PASS | - |
 | 73 | borderleaf1 | Interface State | Vlan Interface & Line Protocol == "up" | Vlan4093 - MLAG_PEER_L3_PEERING | PASS | - |
 | 74 | borderleaf1 | Interface State | Vlan Interface & Line Protocol == "up" | Vlan4094 - MLAG_PEER | PASS | - |
 | 75 | borderleaf1 | Interface State | Vlan Interface & Line Protocol == "up" | Vlan10 - DMZ-1 | PASS | - |

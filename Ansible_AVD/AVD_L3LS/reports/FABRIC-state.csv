@@ -64,13 +64,13 @@ test_id,node,test_category,test_description,test,result,failure_reason
 63,borderleaf1,Interface State,Port-Channel Interface & Line Protocol == "up",Port-Channel1 - MLAG_PEER_borderleaf2_Po1,PASS,
 64,borderleaf2,Interface State,Port-Channel Interface & Line Protocol == "up",Port-Channel1 - MLAG_PEER_borderleaf1_Po1,PASS,
 65,leaf1,Interface State,Port-Channel Interface & Line Protocol == "up",Port-Channel1 - MLAG_PEER_leaf2_Po1,PASS,
-66,leaf1,Interface State,Port-Channel Interface & Line Protocol == "up",Port-Channel7 - host1_PortChannel host1,FAIL,Interface shutdown: False - interface status: down - line protocol status: lowerLayerDown
+66,leaf1,Interface State,Port-Channel Interface & Line Protocol == "up",Port-Channel7 - host1_PortChannel host1,PASS,
 67,leaf2,Interface State,Port-Channel Interface & Line Protocol == "up",Port-Channel1 - MLAG_PEER_leaf1_Po1,PASS,
-68,leaf2,Interface State,Port-Channel Interface & Line Protocol == "up",Port-Channel7 - host1_PortChannel host1,FAIL,Interface shutdown: False - interface status: down - line protocol status: lowerLayerDown
+68,leaf2,Interface State,Port-Channel Interface & Line Protocol == "up",Port-Channel7 - host1_PortChannel host1,PASS,
 69,leaf3,Interface State,Port-Channel Interface & Line Protocol == "up",Port-Channel1 - MLAG_PEER_leaf4_Po1,PASS,
-70,leaf3,Interface State,Port-Channel Interface & Line Protocol == "up",Port-Channel7 - host2_PortChannel host2,FAIL,Interface shutdown: False - interface status: down - line protocol status: lowerLayerDown
+70,leaf3,Interface State,Port-Channel Interface & Line Protocol == "up",Port-Channel7 - host2_PortChannel host2,PASS,
 71,leaf4,Interface State,Port-Channel Interface & Line Protocol == "up",Port-Channel1 - MLAG_PEER_leaf3_Po1,PASS,
-72,leaf4,Interface State,Port-Channel Interface & Line Protocol == "up",Port-Channel7 - host2_PortChannel host2,FAIL,Interface shutdown: False - interface status: down - line protocol status: lowerLayerDown
+72,leaf4,Interface State,Port-Channel Interface & Line Protocol == "up",Port-Channel7 - host2_PortChannel host2,PASS,
 73,borderleaf1,Interface State,Vlan Interface & Line Protocol == "up",Vlan4093 - MLAG_PEER_L3_PEERING,PASS,
 74,borderleaf1,Interface State,Vlan Interface & Line Protocol == "up",Vlan4094 - MLAG_PEER,PASS,
 75,borderleaf1,Interface State,Vlan Interface & Line Protocol == "up",Vlan10 - DMZ-1,PASS,

@@ -309,9 +309,9 @@ port_channel_interfaces:
   description: host2_PortChannel host2
   type: switched
   shutdown: false
-  mode: access
-  vlans: '20'
-  spanning_tree_portfast: edge
+  mode: trunk
+  vlans: 40,50,60
+  spanning_tree_portfast: network
   mlag: 7
 ethernet_interfaces:
 - name: Ethernet1
