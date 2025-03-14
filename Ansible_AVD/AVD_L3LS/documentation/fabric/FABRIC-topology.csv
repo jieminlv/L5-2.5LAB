@@ -10,6 +10,7 @@ l3leaf,borderleaf2,Ethernet2,mlag_peer,borderleaf1,Ethernet2,True
 l3leaf,borderleaf2,Ethernet3,spine,spine1,Ethernet7,True
 l3leaf,borderleaf2,Ethernet4,spine,spine2,Ethernet7,True
 l3leaf,borderleaf2,Ethernet5,spine,spine3,Ethernet7,True
+l3leaf,borderleaf2,Ethernet9,l3_interface,,,True
 l3leaf,leaf1,Ethernet1,mlag_peer,leaf2,Ethernet1,True
 l3leaf,leaf1,Ethernet2,mlag_peer,leaf2,Ethernet2,True
 l3leaf,leaf1,Ethernet3,spine,spine1,Ethernet2,True

@@ -106,6 +106,12 @@ router_bgp:
     neighbors:
     - ip_address: 10.255.251.8
       peer_group: MLAG-IPv4-UNDERLAY-PEER
+    - ip_address: 10.1.6.254
+      remote_as: '2'
+    address_family_ipv4:
+      neighbors:
+      - ip_address: 10.1.6.254
+        activate: true
   vlans:
   - id: 10
     tenant: ACME
@@ -353,6 +359,12 @@ ethernet_interfaces:
   mtu: 1550
   type: routed
   ip_address: 192.168.103.35/31
+- name: Ethernet9
+  peer_type: l3_interface
+  ip_address: 10.1.6.1/24
+  shutdown: false
+  type: routed
+  vrf: VRF_B
 mlag_configuration:
   domain_id: mlag3
   local_interface: Vlan4094
