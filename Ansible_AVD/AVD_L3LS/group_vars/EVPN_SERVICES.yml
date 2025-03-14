@@ -21,12 +21,12 @@ tenants:
         l3_interfaces:
           - interfaces: [Ethernet9]
             ip_addresses: [10.1.5.1/24]
-            nodes: [leaf4]
+            nodes: [borderleaf1]
             enabled: True 
         bgp_peers:
           - ip_address: 10.1.5.254
             remote_as: 1
-            nodes: [leaf4]
+            nodes: [borderleaf1]
       - name: VRF_B
         vrf_vni: 20
         svis:

@@ -89,6 +89,12 @@ router_bgp:
     neighbors:
     - ip_address: 10.255.251.9
       peer_group: MLAG-IPv4-UNDERLAY-PEER
+    - ip_address: 10.1.5.254
+      remote_as: '1'
+    address_family_ipv4:
+      neighbors:
+      - ip_address: 10.1.5.254
+        activate: true
   - name: VRF_B
     router_id: 192.168.101.5
     rd: 192.168.101.5:20
@@ -353,6 +359,12 @@ ethernet_interfaces:
   mtu: 1550
   type: routed
   ip_address: 192.168.103.29/31
+- name: Ethernet9
+  peer_type: l3_interface
+  ip_address: 10.1.5.1/24
+  shutdown: false
+  type: routed
+  vrf: VRF_A
 mlag_configuration:
   domain_id: mlag3
   local_interface: Vlan4094
