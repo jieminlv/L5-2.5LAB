@@ -2,8 +2,8 @@ all:
   children:
     CVP_cluster:
       vars:
-          ansible_user: arista
-          ansible_password: aristat6ue
+          ansible_user: cvpadmin
+          ansible_password: arista123
           ansible_connection: httpapi
           ansible_httpapi_use_ssl: True
           ansible_httpapi_validate_certs: False
@@ -11,12 +11,12 @@ all:
           ansible_httpapi_port: 443
       hosts: 
         cvp1:
-          ansible_host: 192.168.0.5
+          ansible_host: 192.168.50.228
     fabric:
       vars:
-        ansible_user: arista
+        ansible_user: cvpadmin
         ansible_network_os: eos
-        ansible_password: aristat6ue
+        ansible_password: arista123
         ansible_connection: httpapi
         ansible_httpapi_use_ssl: True
         ansible_httpapi_validate_certs: False
@@ -35,7 +35,7 @@ all:
             spine1:
             spine2:
             spine3:
-            spine4:
+            # spine4:
         leafs:
           hosts:
             leaf1:

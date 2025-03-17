@@ -53,9 +53,9 @@ CVP_DEVICES:
       - 'ATD-INFRA'
       - 'spine3-base'
       - 'OSPF_spine3'
-  - fqdn: 'spine4'
-    parentContainerName: 'Spine'
-    configlets:
-      - 'ATD-INFRA'
-      - 'spine4-base'
-      - 'OSPF_spine4'
+  # - fqdn: 'spine4'
+  #   parentContainerName: 'Spine'
+  #   configlets:
+  #     - 'ATD-INFRA'
+  #     - 'spine4-base'
+  #     - 'OSPF_spine4'

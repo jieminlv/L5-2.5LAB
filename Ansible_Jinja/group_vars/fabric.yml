@@ -42,31 +42,31 @@ devices:
     loopbacks:
       loopback0: 192.168.101.101
     p2p:
+      - Ethernet2
       - Ethernet3
       - Ethernet4
       - Ethernet5
-      - Ethernet6
   spine2:
     loopbacks:
       loopback0: 192.168.101.102
     p2p:
+      - Ethernet2
       - Ethernet3
       - Ethernet4
       - Ethernet5
-      - Ethernet6
   spine3:
     loopbacks:
       loopback0: 192.168.101.103
     p2p:
+      - Ethernet2
       - Ethernet3
       - Ethernet4
       - Ethernet5
-      - Ethernet6
   spine4:
     loopbacks:
       loopback0: 192.168.101.104
     p2p:
+      - Ethernet2
       - Ethernet3
       - Ethernet4
       - Ethernet5
-      - Ethernet6
