@@ -1,0 +1,21 @@
+- name: Execute Show Commands
+  hosts: leafs
+  gather_facts: no
+  tasks:
+    - name: Run show version
+      arista.eos.eos_command:
+        commands: show version
+      register: version_output
+
+    - name: Run show ip interface brief
+      arista.eos.eos_command:
+        commands: show ip interface brief
+      register: interfaces_output
+
+    - name: Display version output
+      debug:
+        var: version_output
+
+    - name: Display interfaces output
+      debug:
+        var: interfaces_output

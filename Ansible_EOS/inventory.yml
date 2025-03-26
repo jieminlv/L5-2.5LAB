@@ -1,8 +1,8 @@
 all:
   vars:
-    ansible_user: arista
+    ansible_user: cvpadmin
     ansible_network_os: eos
-    ansible_password: aristat6ue
+    ansible_password: arista123
     ansible_connection: httpapi
     ansible_httpapi_use_ssl: True
     ansible_httpapi_validate_certs: False
