@@ -1,5 +1,5 @@
 - name: Execute Show Commands
-  hosts: leafs
+  hosts: leaf1
   gather_facts: no
   tasks:
     - name: Run show version
