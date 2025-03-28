@@ -31,11 +31,23 @@
     #     validate_mode: ignore
     #     devices: "{{ VALIDATE_DEVICES }}"
 
-    - name: Query task completion
-      arista.cvp.cv_task_v3:
-        state: query
-        task_id: "{{ APPLY_RESULTS.taskIds }}"  # Referencing APPLY_RESULTS for task ID
-      register: task_status
+    # - name: Get all pending tasks from CVP
+    #   arista.cvp.cv_facts:
+    #     facts:
+    #     - tasks
+    #   register: pending_tasks
+
+    # - name: Apply all pending tasks
+    #   arista.cvp.cv_task:
+    #     action: apply
+    #     task_ids: "{{ pending_tasks.ansible_facts.tasks | map(attribute='workOrderId') | list }}"
+    #   when: pending_tasks.ansible_facts.tasks | length > 0
+
+    # - name: Query task completion
+    #   arista.cvp.cv_task_v3:
+    #     state: query
+    #     task_id: "{{ APPLY_RESULTS.taskIds }}"  # Referencing APPLY_RESULTS for task ID
+    #   register: task_status
 
     # - name: Debug APPLY_RESULTS
     #   debug:
