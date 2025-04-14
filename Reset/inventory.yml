@@ -13,3 +13,5 @@ all:
       hosts: 
         cvp1:
           ansible_host: 192.168.50.228
+        cvp2:
+          ansible_host: 192.168.50.230
